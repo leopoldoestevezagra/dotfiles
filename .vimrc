@@ -11,6 +11,11 @@ filetype indent on
 
 set autoread
 
+set path=$PWD/**
+set wildignore+=**/node_modules/** 
+set wildignore+=**/var/** 
+
+
 "=============================================================="
 "User interface"
 "=============================================================="
@@ -103,7 +108,7 @@ set wrap
 :imap jj <Esc>
 
 "NerdTree remapings"
-map <C-n> :NERDTreeToggle<CR>
+map <C-m> :NERDTreeToggle<CR>
 
 "Window resizing"
 if bufwinnr(1)
