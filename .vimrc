@@ -11,10 +11,11 @@ filetype indent on
 
 set autoread
 
+
 set path=$PWD/**
 set wildignore+=**/node_modules/** 
 set wildignore+=**/var/** 
-
+set wildignore+=**/vendor/** 
 
 "=============================================================="
 "User interface"
@@ -121,6 +122,10 @@ if bufwinnr(1)
   map < <C-W><
 endif
 
+" For mouse click in NERDTree
+:set mouse=a
+let g:NERDTreeMouseMode=3 
+
 "=============================================================="
 "Plugins"
 "=============================================================="
@@ -134,6 +139,7 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-abolish'
 Plug 'StanAngeloff/php.vim'
 Plug 'stephpy/vim-php-cs-fixer'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'neomake/neomake'
@@ -150,6 +156,8 @@ Plug 'w0rp/ale'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'junegunn/fzf.vim'
+Plug 'gabesoft/vim-ags'
+Plug 'kien/ctrlp.vim'
 
 call plug#end()
 
