@@ -17,6 +17,23 @@ set wildignore+=**/node_modules/**
 set wildignore+=**/var/** 
 set wildignore+=**/vendor/** 
 
+let g:lightline = {
+      \ 'component_function': {
+      \   'filename': 'LightlineFilename',
+      \ }
+      \ }
+
+" Relative path on lightline at the bottom
+function! LightlineFilename()
+  let root = fnamemodify(get(b:, 'git_dir'), ':h')
+  let path = expand('%:p')
+  if path[:len(root)-1] ==# root
+    return path[len(root)+1:]
+  endif
+  return expand('%')
+endfunction
+
+
 "=============================================================="
 "User interface"
 "=============================================================="
