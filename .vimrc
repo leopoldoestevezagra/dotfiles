@@ -52,6 +52,12 @@ set t_vb=
 set tm=500
 
 set relativenumber
+"set colorcolumn=80
+
+" enable line numbers
+let NERDTreeShowLineNumbers=1
+" make sure relative line numbers are used
+autocmd FileType nerdtree setlocal relativenumber
 
 "=============================================================="
 "Autoloads"
