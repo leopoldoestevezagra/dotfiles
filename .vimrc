@@ -9,6 +9,7 @@ set history=500
 filetype plugin on
 filetype indent on
 
+
 set autoread
 
 
@@ -51,13 +52,30 @@ set novisualbell
 set t_vb=
 set tm=500
 
-set relativenumber
+set number relativenumber
 set colorcolumn=80
 
 " enable line numbers
 let NERDTreeShowLineNumbers=1
 " make sure relative line numbers are used
 autocmd FileType nerdtree setlocal relativenumber
+
+"Nerdtree git symbols
+let g:NERDTreeIndicatorMapCustom = {
+    \ "Modified"  : "M",
+    \ "Staged"    : "S",
+    \ "Untracked" : "U",
+    \ "Renamed"   : "R",
+    \ "Unmerged"  : "Um",
+    \ "Deleted"   : "D",
+    \ "Dirty"     : "Dr",
+    \ "Clean"     : "CL",
+    \ 'Ignored'   : 'I',
+    \ "Unknown"   : "?"
+    \ }
+
+""
+let g:ycm_auto_trigger=0
 
 "=============================================================="
 "Autoloads"
