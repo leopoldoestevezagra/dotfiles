@@ -55,7 +55,12 @@ set tm=500
 set number relativenumber
 set colorcolumn=80
 
-" enable line numbers
+set guicursor=n-v-c:block-Cursor
+
+set background=dark
+set t_Co=256
+
+
 let NERDTreeShowLineNumbers=1
 " make sure relative line numbers are used
 autocmd FileType nerdtree setlocal relativenumber
