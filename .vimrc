@@ -42,7 +42,7 @@ endfunction
 set ruler
 
 set cursorline
-
+hi CursorLine term=bold cterm=bold guibg=Grey40
 set hlsearch
 
 set magic
