@@ -1,5 +1,3 @@
-
-
 "=============================================================="
 "General"
 "=============================================================="
@@ -36,6 +34,18 @@ endfunction
 
 
 "=============================================================="
+"Colors and fonts"
+"=============================================================="
+
+syntax enable
+
+if $COLORTERM == 'gnome-terminal'
+    set t_Co=256
+endif
+
+set encoding=utf8
+
+"=============================================================="
 "User interface"
 "=============================================================="
 
@@ -59,6 +69,17 @@ set guicursor=n-v-c:block-Cursor
 
 set background=dark
 set t_Co=256
+
+let g:lightline = {
+      \ 'colorscheme': 'wombat',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+      \ },
+      \ 'component_function': {
+      \   'gitbranch': 'fugitive#head'
+      \ },
+      \ }
 
 
 let NERDTreeShowLineNumbers=1
@@ -112,17 +133,6 @@ let NERDTreeMinimalUI = 1
 let NERDTreeDirArrows = 1
 
 
-"=============================================================="
-"Colors and fonts"
-"=============================================================="
-
-syntax enable
-
-if $COLORTERM == 'gnome-terminal'
-    set t_Co=256
-endif
-
-set encoding=utf8
 
 "=============================================================="
 "Files and backup"
@@ -207,8 +217,12 @@ Plug 'terryma/vim-multiple-cursors'
 Plug 'junegunn/fzf.vim'
 Plug 'gabesoft/vim-ags'
 Plug 'kien/ctrlp.vim'
+Plug 'morhetz/gruvbox'
+
 
 call plug#end()
+
+colorscheme gruvbox
 
 
 
