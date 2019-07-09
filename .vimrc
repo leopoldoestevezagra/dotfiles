@@ -158,7 +158,8 @@ set tw=500
 
 set ai 
 set si 
-set wrap 
+set nowrap
+
 
 "=============================================================="
 "Remapings"
