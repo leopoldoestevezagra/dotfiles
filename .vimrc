@@ -158,8 +158,7 @@ set tw=500
 
 set ai 
 set si 
-set nowrap
-
+set nowrap 
 
 "=============================================================="
 "Remapings"
@@ -219,12 +218,10 @@ Plug 'junegunn/fzf.vim'
 Plug 'gabesoft/vim-ags'
 Plug 'kien/ctrlp.vim'
 Plug 'morhetz/gruvbox'
+Plug 'nathanaelkane/vim-indent-guides'
+Plug 'junegunn/goyo.vim'
 
 
 call plug#end()
 
 colorscheme gruvbox
-
-
-
-
