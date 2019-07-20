@@ -219,7 +219,6 @@ Plug 'gabesoft/vim-ags'
 Plug 'kien/ctrlp.vim'
 Plug 'morhetz/gruvbox'
 Plug 'nathanaelkane/vim-indent-guides'
-Plug 'junegunn/goyo.vim'
 
 
 call plug#end()
