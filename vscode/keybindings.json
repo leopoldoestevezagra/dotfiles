@@ -1,0 +1,64 @@
+// Place your key bindings in this file to override the defaultsauto[]
+[
+    {
+        "key": "ctrl+oem_minus ctrl+w",
+        "command": "workbench.action.closeWindow",
+        "when": "!editorIsOpen && !multipleEditorGroups"
+    },
+    {
+        "key": "ctrl+w",
+        "command": "-workbench.action.closeWindow",
+        "when": "!editorIsOpen && !multipleEditorGroups"
+    },
+    {
+        "key": "ctrl+shift+oem_minus ctrl+shift+w",
+        "command": "workbench.action.closeActiveEditor"
+    },
+    {
+        "key": "ctrl+w",
+        "command": "-workbench.action.closeActiveEditor"
+    },
+    {
+        "key": "ctrl+w ctrl+shift+oem_period",
+        "command": "workbench.action.closeGroup",
+        "when": "activeEditorGroupEmpty && multipleEditorGroups"
+    },
+    {
+        "key": "ctrl+w",
+        "command": "-workbench.action.closeGroup",
+        "when": "activeEditorGroupEmpty && multipleEditorGroups"
+    },
+    {
+        "key": "ctrl+m",
+        "command": "workbench.action.toggleSidebarVisibility"
+    },
+    {
+        "key": "ctrl+b",
+        "command": "-workbench.action.toggleSidebarVisibility"
+    },
+    {
+        "key": "ctrl+m",
+        "command": "-editor.action.toggleTabFocusMode"
+    },
+    {
+        "key": "shift+alt+m",
+        "command": "workbench.files.action.collapseExplorerFolders"
+    },
+    { 
+        "key": "cmd+shift+j",
+         "command": "workbench.action.terminal.focusNext" 
+        },
+   { 
+       "key": "cmd+shift+k",
+       "command": "workbench.action.terminal.focusPrevious"
+    },
+    {
+        "key": "ctrl+alt+oem_3",
+        "command": "workbench.action.toggleMaximizedPanel"
+    },
+    {
+        "key": "alt+oem_5",
+        "command": "workbench.action.splitEditorDown"
+    }
+
+]

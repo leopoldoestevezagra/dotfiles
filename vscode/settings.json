@@ -1,0 +1,41 @@
+{
+    "workbench.startupEditor": "newUntitledFile",
+    "workbench.iconTheme": "material-icon-theme",
+    "workbench.colorTheme": "Material Theme High Contrast",
+    "editor.lineNumbers": "relative",
+    "workbench.editor.enablePreview": false,
+    "editor.rulers": [
+        80,
+        81
+    ],
+    "workbench.colorCustomizations": {
+        "editorRuler.foreground": "#d62304",
+        "statusBar.background": "#222222",
+        "statusBar.noFolderBackground": "#222222",
+        "statusBar.debuggingBackground": "#222222"
+    },
+    "vim.insertModeKeyBindings": [
+        {
+            "before": [
+                "j",
+                "j"
+            ],
+            "after": [
+                "<esc>"
+            ]
+        }
+    ],
+    "editor.cursorStyle": "block",
+    "editor.fontSize": 16,
+    "editor.fontFamily": "'Courier New', Consolas, monospace",
+    "terminal.integrated.shell.windows": "C:\\Program Files\\Git\\bin\\bash.exe",
+    "terminal.integrated.fontFamily": "'Courier New', Consolas, monospace",
+    "files.associations": {
+        "*.twig": "html"
+    },
+    "window.zoomLevel": 0,
+    "editor.folding": false,
+    "editor.cursorBlinking": "solid",
+    "vim.foldfix": true,
+    "vim.history": 200,
+}

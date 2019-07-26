@@ -1,0 +1,13 @@
+{
+    "recommendations": [
+        "vscodevim.vim",
+        "rid9.datetime",
+        "abusaidm.html-snippets",
+        "zignd.html-css-class-completion",
+        "xabikos.javascriptsnippets",
+        "pkief.material-icon-theme",
+        "equinusocio.vsc-material-theme",
+        "felixfbecker.php-intellisense",
+        "mblode.twig-language-2",
+    ]
+}
