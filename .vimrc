@@ -176,9 +176,10 @@ if bufwinnr(1)
   map - 5<C-W>-
 endif
 
+
 if bufwinnr(1)
-  map > <C-W>>
-  map < <C-W><
+  map <F12> <C-W>>
+  map <F10> <C-W><
 endif
 
 " For mouse click in NERDTree
@@ -219,7 +220,8 @@ Plug 'gabesoft/vim-ags'
 Plug 'kien/ctrlp.vim'
 Plug 'morhetz/gruvbox'
 Plug 'nathanaelkane/vim-indent-guides'
-
+Plug 'junegunn/goyo.vim'
+Plug 'iamcco/markdown-preview.vim'
 
 call plug#end()
 
