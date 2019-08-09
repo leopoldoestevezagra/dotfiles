@@ -167,6 +167,9 @@ set nowrap
 "Basic remapings"
 :imap jj <Esc>
 
+"File finding fzf"
+:map <F2> :Files <CR>
+
 "NerdTree remapings"
 map <C-m> :NERDTreeToggle<CR>
 
@@ -212,7 +215,6 @@ Plug 'nelsyeung/twig.vim'
 Plug 'mattn/emmet-vim'
 Plug 'Valloric/YouCompleteMe'
 Plug 'tpope/vim-surround'
-Plug 'w0rp/ale'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'junegunn/fzf.vim'
