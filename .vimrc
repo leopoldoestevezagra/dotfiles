@@ -216,13 +216,9 @@ Plug 'mattn/emmet-vim'
 Plug 'Valloric/YouCompleteMe'
 Plug 'tpope/vim-surround'
 Plug 'editorconfig/editorconfig-vim'
-Plug 'terryma/vim-multiple-cursors'
-Plug 'junegunn/fzf.vim'
 Plug 'gabesoft/vim-ags'
 Plug 'kien/ctrlp.vim'
 Plug 'morhetz/gruvbox'
-Plug 'nathanaelkane/vim-indent-guides'
-Plug 'junegunn/goyo.vim'
 Plug 'iamcco/markdown-preview.vim'
 
 call plug#end()
