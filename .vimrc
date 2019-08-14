@@ -11,10 +11,19 @@ filetype indent on
 set autoread
 
 
+"=============================================================="
+"Ignores on file search"
+"=============================================================="
+
 set path=$PWD/**
 set wildignore+=**/node_modules/** 
 set wildignore+=**/var/** 
 set wildignore+=**/vendor/** 
+
+
+"=============================================================="
+"Lightline "
+"=============================================================="
 
 let g:lightline = {
       \ 'component_function': {
@@ -31,6 +40,17 @@ function! LightlineFilename()
   endif
   return expand('%')
 endfunction
+
+let g:lightline = {
+      \ 'colorscheme': 'wombat',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+      \ },
+      \ 'component_function': {
+      \   'gitbranch': 'fugitive#head'
+      \ },
+      \ }
 
 
 "=============================================================="
@@ -70,16 +90,6 @@ set guicursor=n-v-c:block-Cursor
 set background=dark
 set t_Co=256
 
-let g:lightline = {
-      \ 'colorscheme': 'wombat',
-      \ 'active': {
-      \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
-      \ },
-      \ 'component_function': {
-      \   'gitbranch': 'fugitive#head'
-      \ },
-      \ }
 
 
 let NERDTreeShowLineNumbers=1
@@ -114,6 +124,10 @@ if empty(glob('~/.vim/autoload/plug.vim'))
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
+"=============================================================="
+"NerdTree configuration"
+"=============================================================="
+
 "Autoload NerdTree"
 autocmd vimenter * NERDTree
 autocmd StdinReadPre * let s:std_in=1
@@ -132,6 +146,7 @@ autocmd BufWritePost *.php silent! call PhpCsFixerFixFile()
 let NERDTreeMinimalUI = 1
 let NERDTreeDirArrows = 1
 
+let g:NERDTreeMouseMode=3 
 
 
 "=============================================================="
@@ -187,7 +202,6 @@ endif
 
 " For mouse click in NERDTree
 :set mouse=a
-let g:NERDTreeMouseMode=3 
 
 "=============================================================="
 "Plugins"
