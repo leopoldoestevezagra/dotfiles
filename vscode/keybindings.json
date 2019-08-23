@@ -59,6 +59,14 @@
     {
         "key": "alt+oem_5",
         "command": "workbench.action.splitEditorDown"
+    },
+    {
+        "key": "shift+alt+w",
+        "command": "workbench.action.minimizeOtherEditors"
+    },
+    {
+        "key": "shift+alt+q",
+        "command": "workbench.action.evenEditorWidths"
     }
 
 ]

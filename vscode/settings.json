@@ -34,8 +34,11 @@
         "*.twig": "html"
     },
     "window.zoomLevel": 0,
-    "editor.folding": false,
+    "editor.folding": true,
     "editor.cursorBlinking": "solid",
     "vim.foldfix": true,
     "vim.history": 200,
+    "vim.useSystemClipboard": true,
+    "workbench.statusBar.visible": true,
+    "extensions.ignoreRecommendations": false,
 }
