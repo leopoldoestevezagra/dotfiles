@@ -53,11 +53,11 @@
        "command": "workbench.action.terminal.focusPrevious"
     },
     {
-        "key": "ctrl+alt+oem_3",
+        "key": "shift+alt+`",
         "command": "workbench.action.toggleMaximizedPanel"
     },
     {
-        "key": "alt+oem_5",
+        "key": "ctrl+[Backquote]",
         "command": "workbench.action.splitEditorDown"
     },
     {
@@ -67,6 +67,9 @@
     {
         "key": "shift+alt+q",
         "command": "workbench.action.evenEditorWidths"
+    },
+    {
+        "key": "shift+[Backquote]",
+        "command": "workbench.action.splitEditorRight"
     }
-
 ]
