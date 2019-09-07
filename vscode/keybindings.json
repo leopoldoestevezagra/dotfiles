@@ -53,7 +53,7 @@
        "command": "workbench.action.terminal.focusPrevious"
     },
     {
-        "key": "shift+alt+`",
+        "key": "ctrl+alt+[BracketLeft]",
         "command": "workbench.action.toggleMaximizedPanel"
     },
     {
