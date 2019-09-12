@@ -187,10 +187,6 @@ if bufwinnr(1)
   map <F10> <C-W><
 endif
 
-" For mouse click in NERDTree
-:set mouse=a
-let g:NERDTreeMouseMode=3 
-
 "=============================================================="
 "Plugins"
 "=============================================================="
