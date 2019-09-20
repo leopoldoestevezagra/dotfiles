@@ -218,6 +218,7 @@ Plug 'gabesoft/vim-ags'
 Plug 'kien/ctrlp.vim'
 Plug 'morhetz/gruvbox'
 Plug 'iamcco/markdown-preview.vim'
+Plug 'vim-scripts/c.vim'
 
 call plug#end()
 
