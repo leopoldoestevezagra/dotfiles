@@ -9,19 +9,11 @@ swipe:
     down: 
       command: 'xdotool key super'
   4:
-    left: 
-      command: 'xdotool key alt+tab'
-    right: 
-      command: 'xdotool key alt+tab'
     up: 
       command: 'xdotool key ctrl+alt+Down'
     down: 
       command: 'xdotool key ctrl+alt+Up'
-pinch:
-  in:
-    command: 'xdotool key ctrl+plus'
-  out:
-     command: 'xdotool key ctrl+minus'
+
 
 threshold:
   swipe: 0.4
