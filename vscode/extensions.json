@@ -10,7 +10,11 @@
         "felixfbecker.php-intellisense",
         "mblode.twig-language-2",
         "formulahendry.code-runner",
-        "ms-vscode.cpptools"
+        "ms-vscode.cpptools",
+        "dline.cobaltnext",
+        "formulahendry.code-runner"
+
+
 
     ]
 }
