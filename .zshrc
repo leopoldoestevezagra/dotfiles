@@ -98,7 +98,6 @@ source $ZSH/oh-my-zsh.sh
 alias mindexpro="/media/uriel/IndexLibrorum/proyectos"
 stty -ixon
 
-bindkey -v
 bindkey '^R' history-incremental-search-backward
 
 
