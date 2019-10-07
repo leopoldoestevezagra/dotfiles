@@ -83,6 +83,7 @@ let g:lightline = {
 
 
 let NERDTreeShowLineNumbers=1
+let NERDTreeShowHidden=1
 
 
 " make sure relative line numbers are used
