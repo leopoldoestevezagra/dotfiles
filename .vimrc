@@ -104,7 +104,6 @@ let g:NERDTreeIndicatorMapCustom = {
     \ }
 
 ""
-let g:ycm_auto_trigger=0
 
 "=============================================================="
 "Autoloads"
