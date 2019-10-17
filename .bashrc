@@ -118,7 +118,7 @@ fi
 
 stty -ixon
 
-export DISPLAY=127.0.0.1:0
+#export DISPLAY=127.0.0.1:0
 
 parse_git_branch() {
      git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
