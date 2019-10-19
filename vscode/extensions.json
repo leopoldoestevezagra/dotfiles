@@ -12,8 +12,9 @@
         "formulahendry.code-runner",
         "ms-vscode.cpptools",
         "dline.cobaltnext",
-        "formulahendry.code-runner"
-
+        "formulahendry.code-runner",
+        "ms-azuretools.vscode-docker",
+        "tomoki1207.pdf"
 
 
     ]
