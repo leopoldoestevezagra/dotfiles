@@ -44,6 +44,7 @@ if $COLORTERM == 'gnome-terminal'
 endif
 
 set encoding=utf8
+set guifont=mononoki\ Nerd\ Font\ 11
 
 "=============================================================="
 "User interface"
@@ -84,7 +85,6 @@ let g:lightline = {
 
 let NERDTreeShowLineNumbers=1
 let NERDTreeShowHidden=1
-
 
 " make sure relative line numbers are used
 autocmd FileType nerdtree setlocal relativenumber
@@ -133,6 +133,8 @@ autocmd BufWritePost *.php silent! call PhpCsFixerFixFile()
 
 let NERDTreeMinimalUI = 1
 let NERDTreeDirArrows = 1
+
+let g:javascript_plugin_jsdoc = 1
 
 
 
@@ -206,9 +208,6 @@ Plug 'junegunn/fzf.vim'
 Plug 'neomake/neomake'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
-Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
-Plug 'majutsushi/tagbar'
 Plug 'nelsyeung/twig.vim'
 Plug 'mattn/emmet-vim'
 Plug 'tpope/vim-surround'
@@ -218,6 +217,7 @@ Plug 'kien/ctrlp.vim'
 Plug 'morhetz/gruvbox'
 Plug 'iamcco/markdown-preview.vim'
 Plug 'vim-scripts/c.vim'
+Plug 'pangloss/vim-javascript'
 
 call plug#end()
 
