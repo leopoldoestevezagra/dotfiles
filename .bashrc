@@ -133,6 +133,8 @@ alias docs='cd ~/Documents'
 alias projects='cd ~/Projects'
 alias clases='cd ~/Documents/Clases'
 
+alias uptodate='sudo apt update && sudo apt upgrade'
+
 alias ginit='git init'
 alias gstatus='git status'
 alias glog='git log --oneline --graph'
