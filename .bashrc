@@ -137,8 +137,15 @@ alias uptodate='sudo apt update && sudo apt upgrade'
 
 alias ginit='git init'
 alias gstatus='git status'
-alias glog='git log --oneline --graph'
+alias glogg='git log --oneline --graph'
+alias glog='git log'
 alias gadd='git add .'
-alias gcomm='git commit -m'
+alias gcomm='git commit'
+alias gpush='git push'
+alias gstash='git stash'
+
+alias v='vim'
+alias vbash='vim ~/.bashrc'
+alias vvim='vim ~/.vimrc'
 
 
