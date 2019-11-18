@@ -218,6 +218,7 @@ Plug 'morhetz/gruvbox'
 Plug 'iamcco/markdown-preview.vim'
 Plug 'vim-scripts/c.vim'
 Plug 'pangloss/vim-javascript'
+Plug 'xuhdev/vim-latex-live-preview'
 
 call plug#end()
 
