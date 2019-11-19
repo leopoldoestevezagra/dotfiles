@@ -12,9 +12,11 @@ set autoread
 
 
 set path=$PWD/**
-set wildignore+=**/node_modules/** 
-set wildignore+=**/var/** 
-set wildignore+=**/vendor/** 
+set wildignore+=**/node_modules/**
+set wildignore+=**/var/**
+set wildignore+=**/vendor/**
+
+set wildmode=longest,list,full
 
 let g:lightline = {
       \ 'component_function': {
@@ -44,7 +46,6 @@ if $COLORTERM == 'gnome-terminal'
 endif
 
 set encoding=utf8
-set guifont=mononoki\ Nerd\ Font\ 11
 
 "=============================================================="
 "User interface"
@@ -59,8 +60,7 @@ set hlsearch
 set magic
 
 set noerrorbells
-set novisualbell
-set t_vb=
+
 set tm=500
 
 set number relativenumber
@@ -105,6 +105,7 @@ let g:NERDTreeIndicatorMapCustom = {
 
 ""
 
+set splitbelow splitright
 "=============================================================="
 "Autoloads"
 "=============================================================="
@@ -125,7 +126,7 @@ autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | exe 'cd '.argv()[0] | endif
 
-let g:NERDTreeDirArrowExpandable ='~' 
+let g:NERDTreeDirArrowExpandable ='~'
 let g:NERDTreeDirArrowCollapsible = '/'
 
 "Autofix on save"
@@ -135,6 +136,8 @@ let NERDTreeMinimalUI = 1
 let NERDTreeDirArrows = 1
 
 let g:javascript_plugin_jsdoc = 1
+
+autocmd BufWritePre * %s/\s\+$//e
 
 
 
@@ -160,9 +163,9 @@ set tabstop=4
 set lbr
 set tw=500
 
-set ai 
-set si 
-set nowrap 
+set ai
+set si
+set nowrap
 
 "=============================================================="
 "Remapings"
@@ -188,6 +191,11 @@ if bufwinnr(1)
   map <F12> <C-W>>
   map <F10> <C-W><
 endif
+
+map <C-h> <C-w>h
+map <C-j> <C-w>j
+map <C-k> <C-w>k
+map <C-l> <C-w>l
 
 "=============================================================="
 "Plugins"
@@ -219,6 +227,7 @@ Plug 'iamcco/markdown-preview.vim'
 Plug 'vim-scripts/c.vim'
 Plug 'pangloss/vim-javascript'
 Plug 'xuhdev/vim-latex-live-preview'
+Plug 'junegunn/goyo.vim'
 
 call plug#end()
 
