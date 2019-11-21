@@ -145,7 +145,16 @@ alias gpush='git push'
 alias gstash='git stash'
 
 alias v='vim'
+alias vf='vifm'
+alias c='code '
+
 alias vbash='vim ~/.bashrc'
 alias vvim='vim ~/.vimrc'
 
+alias bl='xrandr --output eDP-1 --brightness'
+alias bll='xrandr --output eDP-1 --brightness 0.3'
+alias blh='xrandr --output eDP-1 --brightness 0.7'
+alias blm='xrandr --output eDP-1 --brightness 1'
+
+alias btv='pactl set-sink-volume bluez_sink.E8_AB_FA_28_A4_17.a2dp_sink '
 
