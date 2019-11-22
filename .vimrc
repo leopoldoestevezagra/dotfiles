@@ -228,7 +228,11 @@ Plug 'vim-scripts/c.vim'
 Plug 'pangloss/vim-javascript'
 Plug 'xuhdev/vim-latex-live-preview'
 Plug 'junegunn/goyo.vim'
+Plug 'ayu-theme/ayu-vim'
 
 call plug#end()
 
-colorscheme gruvbox
+set background=dark
+set termguicolors
+let ayucolor="mirage"
+colorscheme ayu
