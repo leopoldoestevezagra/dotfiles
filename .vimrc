@@ -1,4 +1,68 @@
 
+"                    .
+"    ##############..... ##############
+"    ##############......##############
+"      ##########..........##########
+"      ##########........##########
+"      ##########.......##########
+"      ##########.....##########..
+"      ##########....##########.....
+"    ..##########..##########.........
+"  ....##########.#########.............
+"    ..##################...JJJ...........
+"      ################.................
+"      ##############.......JJJ..JJJJJJJJJJ
+"      ############.........JJJ..JJ..JJ  JJ
+"      ##########...........JJJ..JJ..JJ  JJ
+"      ########.............JJJ..JJJ JJJ JJJ
+"      ######    .........
+"                  .....
+"                    .
+"
+"=============================================================="
+"Plugins"
+"=============================================================="
+"
+"Autoload plug"
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
+call plug#begin('~/.vim/plugged')
+
+Plug 'scrooloose/nerdtree'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'itchyny/lightline.vim'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-abolish'
+Plug 'StanAngeloff/php.vim'
+Plug 'stephpy/vim-php-cs-fixer'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf'
+Plug 'junegunn/fzf.vim'
+Plug 'neomake/neomake'
+Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
+Plug 'nelsyeung/twig.vim'
+Plug 'mattn/emmet-vim'
+Plug 'tpope/vim-surround'
+Plug 'editorconfig/editorconfig-vim'
+Plug 'gabesoft/vim-ags'
+Plug 'kien/ctrlp.vim'
+Plug 'morhetz/gruvbox'
+Plug 'iamcco/markdown-preview.vim'
+Plug 'vim-scripts/c.vim'
+Plug 'pangloss/vim-javascript'
+Plug 'xuhdev/vim-latex-live-preview'
+Plug 'junegunn/goyo.vim'
+Plug 'ayu-theme/ayu-vim'
+
+call plug#end()
+
+
+"=============================================================="
 "General"
 "=============================================================="
 
@@ -10,7 +74,6 @@ filetype indent on
 
 set autoread
 
-
 set path=$PWD/**
 set wildignore+=**/node_modules/**
 set wildignore+=**/var/**
@@ -18,104 +81,18 @@ set wildignore+=**/vendor/**
 
 set wildmode=longest,list,full
 
-let g:lightline = {
-      \ 'component_function': {
-      \   'filename': 'LightlineFilename',
-      \ }
-      \ }
-
-" Relative path on lightline at the bottom
-function! LightlineFilename()
-  let root = fnamemodify(get(b:, 'git_dir'), ':h')
-  let path = expand('%:p')
-  if path[:len(root)-1] ==# root
-    return path[len(root)+1:]
-  endif
-  return expand('%')
-endfunction
-
-
-"=============================================================="
-"Colors and fonts"
-"=============================================================="
-
-syntax enable
-
-if $COLORTERM == 'gnome-terminal'
-    set t_Co=256
-endif
-
-set encoding=utf8
-
-"=============================================================="
-"User interface"
-"=============================================================="
-
-set ruler
-
-set cursorline
-hi CursorLine term=bold cterm=bold guibg=Grey40
-set hlsearch
+set splitbelow splitright
 
 set magic
 
 set noerrorbells
 
-set tm=500
+set encoding=utf8
 
-set number relativenumber
-set colorcolumn=80
-
-set guicursor=n-v-c:block-Cursor
-
-set background=dark
-set t_Co=256
-
-let g:lightline = {
-      \ 'colorscheme': 'wombat',
-      \ 'active': {
-      \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
-      \ },
-      \ 'component_function': {
-      \   'gitbranch': 'fugitive#head'
-      \ },
-      \ }
-
-
-let NERDTreeShowLineNumbers=1
-let NERDTreeShowHidden=1
-
-" make sure relative line numbers are used
-autocmd FileType nerdtree setlocal relativenumber
-
-"Nerdtree git symbols
-let g:NERDTreeIndicatorMapCustom = {
-    \ "Modified"  : "M",
-    \ "Staged"    : "S",
-    \ "Untracked" : "U",
-    \ "Renamed"   : "R",
-    \ "Unmerged"  : "Um",
-    \ "Deleted"   : "D",
-    \ "Dirty"     : "Dr",
-    \ "Clean"     : "CL",
-    \ 'Ignored'   : 'I',
-    \ "Unknown"   : "?"
-    \ }
-
-""
-
-set splitbelow splitright
 "=============================================================="
-"Autoloads"
+"NerdTree"
 "=============================================================="
 
-"Autoload plug"
-if empty(glob('~/.vim/autoload/plug.vim'))
-  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
-    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
-endif
 
 "Autoload NerdTree"
 " autocmd vimenter * NERDTree
@@ -126,8 +103,6 @@ autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | exe 'cd '.argv()[0] | endif
 
-let g:NERDTreeDirArrowExpandable ='~'
-let g:NERDTreeDirArrowCollapsible = '/'
 
 "Autofix on save"
 autocmd BufWritePost *.php silent! call PhpCsFixerFixFile()
@@ -135,10 +110,9 @@ autocmd BufWritePost *.php silent! call PhpCsFixerFixFile()
 let NERDTreeMinimalUI = 1
 let NERDTreeDirArrows = 1
 
-let g:javascript_plugin_jsdoc = 1
-
 autocmd BufWritePre * %s/\s\+$//e
 
+let NERDTreeShowHidden=1
 
 
 "=============================================================="
@@ -201,43 +175,62 @@ nmap <S-l> <C-w>l
 nmap <S-v> <C-w>v
 nmap <S-s> <C-w>s
 
-
 "=============================================================="
-"Plugins"
+"UI and colors"
 "=============================================================="
 
-call plug#begin('~/.vim/plugged')
 
-Plug 'scrooloose/nerdtree'
-Plug 'Xuyuanp/nerdtree-git-plugin'
-Plug 'itchyny/lightline.vim'
-Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-abolish'
-Plug 'StanAngeloff/php.vim'
-Plug 'stephpy/vim-php-cs-fixer'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf'
-Plug 'junegunn/fzf.vim'
-Plug 'neomake/neomake'
-Plug 'tpope/vim-fugitive'
-Plug 'airblade/vim-gitgutter'
-Plug 'nelsyeung/twig.vim'
-Plug 'mattn/emmet-vim'
-Plug 'tpope/vim-surround'
-Plug 'editorconfig/editorconfig-vim'
-Plug 'gabesoft/vim-ags'
-Plug 'kien/ctrlp.vim'
-Plug 'morhetz/gruvbox'
-Plug 'iamcco/markdown-preview.vim'
-Plug 'vim-scripts/c.vim'
-Plug 'pangloss/vim-javascript'
-Plug 'xuhdev/vim-latex-live-preview'
-Plug 'junegunn/goyo.vim'
-Plug 'ayu-theme/ayu-vim'
-
-call plug#end()
+syntax enable
 
 set background=dark
 set termguicolors
 let ayucolor="mirage"
 colorscheme ayu
+
+
+set ruler
+
+set cursorline
+hi CursorLine term=bold cterm=bold guibg=Grey40
+set hlsearch
+
+
+set tm=500
+
+set number relativenumber
+set colorcolumn=80
+
+set background=dark
+set t_Co=256
+
+"##### Lightline #####"
+let g:lightline = {
+      \ 'component_function': {
+      \   'filename': 'LightlineFilename',
+      \ }
+      \ }
+
+" Relative path on lightline at the bottom
+function! LightlineFilename()
+  let root = fnamemodify(get(b:, 'git_dir'), ':h')
+  let path = expand('%:p')
+  if path[:len(root)-1] ==# root
+    return path[len(root)+1:]
+  endif
+  return expand('%')
+endfunction
+
+let g:lightline = {
+      \ 'colorscheme': 'wombat',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+      \ },
+      \ 'component_function': {
+      \   'gitbranch': 'fugitive#head'
+      \ },
+      \ }
+
+
+
+
