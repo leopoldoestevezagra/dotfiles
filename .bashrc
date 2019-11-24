@@ -135,6 +135,8 @@ alias clases='cd ~/Documents/Clases'
 
 alias uptodate='sudo apt update && sudo apt upgrade'
 
+alias rmd = 'rm -R '
+
 alias ginit='git init'
 alias gstatus='git status'
 alias glogg='git log --oneline --graph'
@@ -147,6 +149,7 @@ alias gstash='git stash'
 alias v='vim'
 alias vf='vifm'
 alias c='code '
+alias txm='tmux new -s Main'
 
 alias vbash='vim ~/.bashrc'
 alias vvim='vim ~/.vimrc'
