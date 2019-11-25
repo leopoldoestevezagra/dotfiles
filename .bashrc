@@ -135,7 +135,7 @@ alias clases='cd ~/Documents/Clases'
 
 alias uptodate='sudo apt update && sudo apt upgrade'
 
-alias rmd = 'rm -R '
+alias rmd='rm -R '
 
 alias ginit='git init'
 alias gstatus='git status'
