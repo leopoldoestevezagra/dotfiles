@@ -1,3 +1,24 @@
+# *************************************************************************** #
+
+#BBBBBBBBBBBBBBBBB              AAA                SSSSSSSSSSSSSSSHHHHHHHHH     HHHHHHHHH
+#B::::::::::::::::B            A:::A             SS:::::::::::::::H:::::::H     H:::::::H
+#B::::::BBBBBB:::::B          A:::::A           S:::::SSSSSS::::::H:::::::H     H:::::::H
+#BB:::::B     B:::::B        A:::::::A          S:::::S     SSSSSSHH::::::H     H::::::HH
+#  B::::B     B:::::B       A:::::::::A         S:::::S             H:::::H     H:::::H
+#  B::::B     B:::::B      A:::::A:::::A        S:::::S             H:::::H     H:::::H
+#  B::::BBBBBB:::::B      A:::::A A:::::A        S::::SSSS          H::::::HHHHH::::::H
+#  B:::::::::::::BB      A:::::A   A:::::A        SS::::::SSSSS     H:::::::::::::::::H
+#  B::::BBBBBB:::::B    A:::::A     A:::::A         SSS::::::::SS   H:::::::::::::::::H
+#  B::::B     B:::::B  A:::::AAAAAAAAA:::::A           SSSSSS::::S  H::::::HHHHH::::::H
+#  B::::B     B:::::B A:::::::::::::::::::::A               S:::::S H:::::H     H:::::H
+#  B::::B     B:::::BA:::::AAAAAAAAAAAAA:::::A              S:::::S H:::::H     H:::::H
+#BB:::::BBBBBB::::::A:::::A             A:::::A SSSSSSS     S:::::HH::::::H     H::::::HH
+#B:::::::::::::::::A:::::A               A:::::AS::::::SSSSSS:::::H:::::::H     H:::::::H
+#B::::::::::::::::A:::::A                 A:::::S:::::::::::::::SSH:::::::H     H:::::::H
+#BBBBBBBBBBBBBBBBAAAAAAA                   AAAAAASSSSSSSSSSSSSSS  HHHHHHHHH     HHHHHHHHH
+
+# *************************************************************************** #
+
 # ~/.bashrc: executed by bash(1) for non-login shells.
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
