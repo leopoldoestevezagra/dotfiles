@@ -35,7 +35,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'itchyny/lightline.vim'
-Plug 'tpope/vim-commentary'
+Plug 'scrooloose/nerdcommenter'
 Plug 'tpope/vim-abolish'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf'
@@ -135,7 +135,7 @@ set nowrap
 "=============================================================="
 "Remapings"
 "=============================================================="
-let mapleader=" "
+let mapleader=","
 
 
 "Basic remapings"
