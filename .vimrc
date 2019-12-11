@@ -79,6 +79,11 @@ set magic
 set noerrorbells
 
 set encoding=utf8
+set foldmethod=syntax
+set nofoldenable
+
+
+
 
 "=============================================================="
 "NerdTree"
