@@ -44,10 +44,8 @@ Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-surround'
 Plug 'gabesoft/vim-ags'
-Plug 'morhetz/gruvbox'
 Plug 'iamcco/markdown-preview.vim'
 Plug 'xuhdev/vim-latex-live-preview'
-Plug 'junegunn/goyo.vim'
 Plug 'ayu-theme/ayu-vim'
 
 call plug#end()
