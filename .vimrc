@@ -148,6 +148,7 @@ let mapleader=","
 "File finding fzf"
 :map <F2> :Files <CR>
 
+
 "NerdTree remapings"
 map <C-m> :NERDTreeToggle<CR>
 

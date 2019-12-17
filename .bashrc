@@ -148,6 +148,8 @@ parse_git_branch() {
 
 
 export PS1="\[$(tput bold)\]\[\033[38;5;46m\]\u@\h\[$(tput sgr0)\]\[$(tput sgr0)\]\[\033[38;5;15m\]:\[$(tput bold)\]\[$(tput sgr0)\]\[\033[38;5;33m\]\w\[$(tput sgr0)\]\[$(tput sgr0)\]\[\033[38;5;15m\]\$(parse_git_branch)\[\033[00m\] \\$ \[$(tput sgr0)\]"
+export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
+
 
 alias home='cd'
 alias docs='cd ~/Documents'
