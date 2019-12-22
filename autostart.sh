@@ -4,11 +4,11 @@
 sudo apt update ;
 sudo apt upgrade;
 
-# Initial required pkgs 
+# Initial required pkgs
 sudo apt install vim;
 sudo apt install git;
 
-# Basic used folders 
+# Basic used folders
 cd;
 if [ -d "Projects" ]; then
     echo "Projects directory already exists , skiping step";
@@ -37,4 +37,9 @@ if [ -f ".vimrc" ]; then
 else
     cp Documents/dotfiles/.vimrc ~;
 fi
+
+
+wget https://github.com/sharkdp/fd/releases/download/v7.3.0/fd-musl_7.3.0_amd64.deb;
+sudo dpkg -i fd-musl_7.3.0_amd64.deb;
+sudo snap install --classic code;
 
