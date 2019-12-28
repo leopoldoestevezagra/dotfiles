@@ -146,7 +146,7 @@ let mapleader=","
 :imap jj <Esc>
 
 "File finding fzf"
-:map <F2> :Files <CR>
+:map <F1> :Files <CR>
 
 
 "NerdTree remapings"
