@@ -47,6 +47,7 @@ Plug 'gabesoft/vim-ags'
 Plug 'nelsyeung/twig.vim'
 Plug 'iamcco/markdown-preview.vim'
 Plug 'xuhdev/vim-latex-live-preview'
+Plug 'junegunn/goyo.vim'
 Plug 'ayu-theme/ayu-vim'
 
 call plug#end()
