@@ -66,9 +66,6 @@ filetype indent on
 set autoread
 
 set path=$PWD/**
-set wildignore+=**/node_modules/**
-set wildignore+=**/var/**
-set wildignore+=**/vendor/**
 
 set wildmode=longest,list,full
 
