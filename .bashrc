@@ -173,6 +173,7 @@ alias v='vim'
 alias vf='vifm'
 alias c='code '
 alias txm='tmux new -s Main'
+alias pdfo='evince '
 
 alias vbash='vim ~/.bashrc'
 alias vvim='vim ~/.vimrc'
