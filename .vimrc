@@ -49,6 +49,7 @@ Plug 'iamcco/markdown-preview.vim'
 Plug 'xuhdev/vim-latex-live-preview'
 Plug 'junegunn/goyo.vim'
 Plug 'ayu-theme/ayu-vim'
+Plug 'mattn/emmet-vim'
 
 call plug#end()
 
@@ -140,6 +141,7 @@ let g:goyo_linenr = 1
 "Remapings"
 "=============================================================="
 let mapleader=","
+let g:user_emmet_leader_key=','
 
 
 "Basic remapings"
