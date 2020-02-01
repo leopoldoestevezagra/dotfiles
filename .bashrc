@@ -182,6 +182,8 @@ alias c='code '
 alias txm='tmux new -s Main'
 alias pdfo='evince '
 
+alias work='sh ~/scripts/tmuxWork.sh'
+
 alias vbash='vim ~/.bashrc'
 alias vvim='vim ~/.vimrc'
 
