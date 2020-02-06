@@ -4,9 +4,32 @@
 sudo apt update ;
 sudo apt upgrade;
 
-# Initial required pkgs
+# Auto installers
+
+##  Needed
+sudo apt install snap;
+
+## Editors
 sudo apt install vim;
 sudo apt install git;
+sudo apt install tmux;
+sudo apt install texlive;
+sudo snap install --classic code;
+
+
+## Utilities
+sudo apt install chromium-browser;
+sudo apt install wmctrl;
+
+## Basic language support
+sudo apt install build-essential;
+sudo apt install default-jre;
+sudo apt install python3;
+sudo apt install php;
+
+## Node
+curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -;
+sudo apt install nodejs;
 
 # Basic used folders
 cd;
@@ -16,9 +39,15 @@ else
     mkdir Projects
 fi
 
+if [ -d "Scripts" ]; then
+    echo "Scripts directory already exists , skiping step";
+else
+    mkdir scripts
+fi
+
 
 # Repositories to clone
-cd Documents;
+cd Projects;
 git clone https://github.com/LeopoldoEstevezAgra/dotfiles.git;
 
 # Config files
@@ -26,20 +55,27 @@ git clone https://github.com/LeopoldoEstevezAgra/dotfiles.git;
 cd;
 if [ -f ".bashrc" ]; then
     rm .bashrc;
-    cp Documents/dotfiles/.bashrc ~;
+    cp Projects/dotfiles/.bashrc ~;
 else
-    cp Documents/dotfiles/.bashrc ~;
+    cp Projects/dotfiles/.bashrc ~;
 fi
 
 if [ -f ".vimrc" ]; then
     rm .vimrc;
-    cp Documents/dotfiles/.vimrc ~;
+    cp Projects/dotfiles/.vimrc ~;
 else
-    cp Documents/dotfiles/.vimrc ~;
+    cp Projects/dotfiles/.vimrc ~;
 fi
 
+if [ -f ".tmux.conf" ]; then
+    rm .vimrc;
+    cp Projects/dotfiles/.tmux.conf ~;
+else
+    cp Projects/dotfiles/.tmux.conf ~;
+fi
 
-wget https://github.com/sharkdp/fd/releases/download/v7.3.0/fd-musl_7.3.0_amd64.deb;
-sudo dpkg -i fd-musl_7.3.0_amd64.deb;
-sudo snap install --classic code;
+cd ~/Scripts & rm *;
+cp ~/Projects/dotfiles/scripts/* ~/Scripts;
+cd ~/
+
 
