@@ -160,7 +160,7 @@ alias pd='pwd'
 alias t='time'
 
 alias docs='cd ~/Documents'
-alias projects='cd ~/Projects'
+alias proj='cd ~/Projects'
 alias clases='cd ~/Documents/Clases'
 
 alias uptodate='sudo apt update && sudo apt upgrade'
@@ -186,6 +186,7 @@ alias work='sh ~/scripts/tmuxWork.sh'
 
 alias vbash='vim ~/.bashrc'
 alias vvim='vim ~/.vimrc'
+alias vtux='vim ~/.vimrc'
 
 alias clwar='clear'
 alias clewr='clear'
