@@ -1,7 +1,6 @@
 {
     "recommendations": [
         "vscodevim.vim",
-        "rid9.datetime",
         "abusaidm.html-snippets",
         "zignd.html-css-class-completion",
         "xabikos.javascriptsnippets",
@@ -10,12 +9,9 @@
         "felixfbecker.php-intellisense",
         "mblode.twig-language-2",
         "formulahendry.code-runner",
-        "ms-vscode.cpptools",
         "dline.cobaltnext",
         "formulahendry.code-runner",
         "ms-azuretools.vscode-docker",
         "tomoki1207.pdf"
-
-
     ]
 }
