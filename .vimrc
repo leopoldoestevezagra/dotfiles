@@ -185,6 +185,7 @@ set termguicolors
 let ayucolor="mirage"
 colorscheme ayu
 
+set diffopt+=vertical
 
 set ruler
 
