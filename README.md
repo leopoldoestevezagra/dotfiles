@@ -9,8 +9,9 @@ go ahead and check them out if you want to .
 * bash config
 * zsh config
 * vim config
+* vifm config
 * i3 config
 * autostart for new installs
 * eclipse rapper
 * tmux config
-
+* scripts for auto-resize windows
