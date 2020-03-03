@@ -186,7 +186,7 @@ alias work='sh ~/scripts/tmuxWork.sh'
 
 alias vbash='vim ~/.bashrc'
 alias vvim='vim ~/.vimrc'
-alias vtux='vim ~/.vimrc'
+alias vtux='vim ~/.tmux.conf'
 
 alias clwar='clear'
 alias clewr='clear'
