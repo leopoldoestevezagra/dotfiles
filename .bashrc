@@ -181,6 +181,7 @@ alias vf='vifm'
 alias c='code '
 alias txm='tmux new -s Main'
 alias pdfo='evince '
+alias pdft='pandoc -s -V geometry:margin=1in -o '
 
 alias work='sh ~/scripts/tmuxWork.sh'
 
