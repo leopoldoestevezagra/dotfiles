@@ -77,7 +77,7 @@ set magic
 set noerrorbells
 
 set encoding=utf8
-set foldmethod=syntax
+set foldmethod=indent
 set nofoldenable
 
 
