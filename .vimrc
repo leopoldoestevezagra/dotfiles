@@ -52,6 +52,7 @@ Plug 'ayu-theme/ayu-vim'
 Plug 'mattn/emmet-vim'
 Plug 'posva/vim-vue'
 Plug 'pangloss/vim-javascript'
+Plug 'jiangmiao/auto-pairs'
 
 call plug#end()
 
