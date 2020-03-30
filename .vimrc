@@ -169,8 +169,8 @@ endif
 
 
 if bufwinnr(1)
-  map <F12> <C-W>>
-  map <F10> <C-W><
+  map <F12> 5<C-W>>
+  map <F10> 5<C-W><
 endif
 
 nmap <S-h> <C-w>h
