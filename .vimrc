@@ -150,12 +150,16 @@ let g:goyo_linenr = 1
 let mapleader=","
 let g:user_emmet_leader_key=','
 
-
 "Basic remapings"
 :imap jj <Esc>
 
 "File finding fzf"
 :map <F1> :Files <CR>
+
+noremap <Leader>y "*y
+noremap <Leader>p "*p
+noremap <Leader>Y "+y
+noremap <Leader>P "+p
 
 
 "NerdTree remapings"
