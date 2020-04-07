@@ -432,7 +432,9 @@ globalkeys = my_table.join(
 
     -- Standard program
     awful.key({ modkey,           }, "Return", function () awful.spawn(terminal) end,
-              {description = terminal, group = "super"}),
+              {description = "Terminal", group = "super"}),
+    awful.key({ modkey,           }, "i", function () awful.spawn(browser) end,
+              {description = "Chromium", group = "super"}),
     awful.key({ modkey, "Shift" }, "r", awesome.restart,
               {description = "reload awesome", group = "awesome"}),
     awful.key({ modkey, "Shift"   }, "q",  function () awful.spawn.with_shell( '~/.dmenu/prompt "are you sure?" "killall awesome"' ) end,
