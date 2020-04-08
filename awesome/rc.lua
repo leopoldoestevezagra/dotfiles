@@ -116,13 +116,13 @@ awful.util.terminal = terminal
 --awful.util.tagnames = {  " ", " ", " ", " ", " ", " ", " ", " ", " ", " "  }
 --awful.util.tagnames = { "⠐", "⠡", "⠲", "⠵", "⠻", "⠿" }
 --awful.util.tagnames = { "⌘", "♐", "⌥", "ℵ" }
-awful.util.tagnames = { " 1 ", " 2 ", " 3 ", " 4 ", " 5 ", " 6 ", " 7 ", " 8 ", " 9  " }
+awful.util.tagnames = { " DEV ", " WEB ", " DOCS ", " MSC ", " SYS ", " 6 ", " 7 ", " 8 ", " 9  " }
 -- Use this : https://fontawesome.com/cheatsheet
 --awful.util.tagnames = { "", "", "", "", "" }
 awful.layout.suit.tile.left.mirror = true
 awful.layout.layouts = {
     awful.layout.suit.tile,
-    awful.layout.suit.floating,
+    --awful.layout.suit.floating,
     awful.layout.suit.tile.left,
     awful.layout.suit.tile.bottom,
     awful.layout.suit.tile.top,
@@ -439,7 +439,7 @@ globalkeys = my_table.join(
               {description = "Reload awesome", group = "awesome"}),
     awful.key({ modkey, "Shift" }, "q", awesome.quit,
               {description = "Quit awesome", group = "awesome"}),
-    awful.key({ modkey, "Shift"}, "l", function () os.execute("i3lock -i ~/Pictures/Wallpapers/anchor_drawing_vector_dark_93570_1920x1080.png") end,
+    awful.key({ modkey, "Shift"}, "p", function () os.execute("i3lock -i ~/Pictures/Wallpapers/anchor_drawing_vector_dark_93570_1920x1080.png & sleep 5 && xset dpms force off") end,
               {description = "Lock awesome", group = "awesome"}),
 
     awful.key({ altkey, "Shift"   }, "l",     function () awful.tag.incmwfact( 0.05)          end,
@@ -548,8 +548,6 @@ clientkeys = my_table.join(
         {description = "toggle fullscreen", group = "client"}),
     awful.key({ modkey, "Shift"   }, "c",      function (c) c:kill()                         end,
               {description = "close", group = "hotkeys"}),
-    awful.key({ modkey, "Shift" }, "space",  awful.client.floating.toggle                     ,
-              {description = "toggle floating", group = "client"}),
     awful.key({ modkey, "Control" }, "Return", function (c) c:swap(awful.client.getmaster()) end,
               {description = "move to master", group = "client"}),
     awful.key({ modkey,           }, "o",      function (c) c:move_to_screen()               end,
@@ -703,25 +701,7 @@ awful.rules.rules = {
           "copyq",  -- Includes session name in class.
         },
         class = {
-          "Arandr",
-          "Blueberry",
-          "Galculator",
-          "Gnome-font-viewer",
-          "Gpick",
-          "Imagewriter",
-          "Font-manager",
-          "Kruler",
-          "MessageWin",  -- kalarm.
-          "Oblogout",
-          "Peek",
-          "Skype",
-          "System-config-printer.py",
-          "Sxiv",
-          "Unetbootin.elf",
-          "Wpa_gui",
-          "pinentry",
-          "veromix",
-          "xtightvncviewer"},
+          },
 
         name = {
           "Event Tester",  -- xev.
@@ -824,3 +804,4 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 -- Autostart applications
 awful.spawn.with_shell("~/.config/awesome/autostart.sh")
 awful.spawn.with_shell("compton --config  $HOME/.config/compton/compton.conf")
+awful.spawn.with_shell("xinput set-prop 12 305 1")
