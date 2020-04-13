@@ -22,14 +22,14 @@ theme.fg_normal                                 = "#ffffff"
 theme.fg_focus                                  = "#A77AC4"
 theme.fg_urgent                                 = "#b74822"
 theme.bg_normal                                 = "#282a36"
-theme.bg_focus                                  = "#D9D9D9"
+theme.bg_focus                                  = "#FF79C6"
 theme.bg_urgent                                 = "#3F3F3F"
 theme.taglist_fg_focus                          = "#282a36"
 theme.tasklist_bg_focus                         = "#000000"
 theme.tasklist_fg_focus                         = "#A77AC4"
 theme.border_width                              = 2
 theme.border_normal                             = "#282a36"
-theme.border_focus                              = "#ededed"
+theme.border_focus                              = "#F07178"
 theme.border_marked                             = "#CC9393"
 theme.titlebar_bg_focus                         = "#3F3F3F"
 theme.titlebar_bg_normal                        = "#3F3F3F"
@@ -165,7 +165,7 @@ theme.volume = lain.widget.alsabar({
 local memicon = wibox.widget.imagebox(theme.widget_mem)
 local mem = lain.widget.mem({
     settings = function()
-        widget:set_markup(markup.font(theme.font, mem_now.used .. "MB   |"))
+        widget:set_markup(markup.font(theme.font, " " .. mem_now.used .. "MB "))
     end
 })
 
@@ -173,7 +173,7 @@ local mem = lain.widget.mem({
 local cpuicon = wibox.widget.imagebox(theme.widget_cpu)
 local cpu = lain.widget.cpu({
     settings = function()
-        widget:set_markup(markup.font(theme.font, cpu_now.usage .. "%   |"))
+        widget:set_markup(markup.font(theme.font, " " .. cpu_now.usage .. "% "))
     end
 })
 
@@ -190,7 +190,7 @@ end)
 -- Coretemp (lain, average)
 local temp = lain.widget.temp({
     settings = function()
-        widget:set_markup(markup.font(theme.font,  coretemp_now .. "°C   |"))
+        widget:set_markup(markup.font(theme.font, " " .. coretemp_now .. "°C "))
     end
 })
 --]]
@@ -218,7 +218,7 @@ local bat = lain.widget.bat({
     settings = function()
         if bat_now.status and bat_now.status ~= "N/A" then
             if bat_now.ac_status == 1 then
-                widget:set_markup(markup.font(theme.font, " AC   |"))
+                widget:set_markup(markup.font(theme.font, " AC "))
                 baticon:set_image(theme.widget_ac)
                 return
             elseif not bat_now.perc and tonumber(bat_now.perc) <= 5 then
@@ -228,7 +228,7 @@ local bat = lain.widget.bat({
             else
                 baticon:set_image(theme.widget_battery)
             end
-            widget:set_markup(markup.font(theme.font, bat_now.perc .. "%   |"))
+            widget:set_markup(markup.font(theme.font, " " .. bat_now.perc .. "% "))
         else
             widget:set_markup()
             baticon:set_image(theme.widget_ac)
@@ -250,7 +250,7 @@ theme.volume = lain.widget.alsa({
             volicon:set_image(theme.widget_vol)
         end
 
-        widget:set_markup(markup.font(theme.font,  volume_now.level .. "%   | "))
+        widget:set_markup(markup.font(theme.font, " " .. volume_now.level .. "% "))
     end
 })
 
@@ -258,7 +258,7 @@ theme.volume = lain.widget.alsa({
 local neticon = wibox.widget.imagebox(theme.widget_net)
 local net = lain.widget.net({
     settings = function()
-        widget:set_markup(markup.fontfg(theme.font, "#FEFEFE",  net_now.received .. " ↓↑ " .. net_now.sent .. "   |"))
+        widget:set_markup(markup.fontfg(theme.font, "#FEFEFE", " " .. net_now.received .. " ↓↑ " .. net_now.sent .. " "))
     end
 })
 
@@ -353,14 +353,21 @@ function theme.at_screen_connect(s)
             -- using separators
             --arrow(theme.bg_normal, "#343434"),
            -- wibox.container.background(wibox.container.margin(wibox.widget { mailicon, mail and mail.widget, layout = wibox.layout.align.horizontal }, 4, 7), "#343434"),
-            wibox.container.background(wibox.container.margin(wibox.widget { volicon, theme.volume.widget, layout = wibox.layout.align.horizontal }, 2, 3), "alpha"),
-            wibox.container.background(wibox.container.margin(wibox.widget { memicon, mem.widget, layout = wibox.layout.align.horizontal }, 2, 3), "alpha"),
-            wibox.container.background(wibox.container.margin(wibox.widget { cpuicon, cpu.widget, layout = wibox.layout.align.horizontal }, 3, 4), "alpha"),
-            wibox.container.background(wibox.container.margin(wibox.widget { tempicon, temp.widget, layout = wibox.layout.align.horizontal }, 4, 4), "alpha"),
-            wibox.container.background(wibox.container.margin(wibox.widget { baticon, bat.widget, layout = wibox.layout.align.horizontal }, 3, 3), "alpha"),
-            wibox.container.background(wibox.container.margin(wibox.widget { nil, neticon, net.widget, layout = wibox.layout.align.horizontal }, 3, 3), "alpha"),
-            wibox.container.background(wibox.container.margin(clock, 4, 8), "alpha"),
-            arrow("alpha", "alpha"),
+            arrow("alpha", "#A77AC4"),
+            wibox.container.background(wibox.container.margin(wibox.widget { volicon, theme.volume.widget, layout = wibox.layout.align.horizontal }, 2, 3), "#A77AC4"),
+            arrow("#A77AC4", "#7197E7"),
+            wibox.container.background(wibox.container.margin(wibox.widget { memicon, mem.widget, layout = wibox.layout.align.horizontal }, 2, 3), "#7197E7"),
+            arrow("#7197E7", "#A77AC4"),
+            wibox.container.background(wibox.container.margin(wibox.widget { cpuicon, cpu.widget, layout = wibox.layout.align.horizontal }, 3, 4), "#A77AC4"),
+            arrow("#A77AC4", "#7197E7"),
+            wibox.container.background(wibox.container.margin(wibox.widget { tempicon, temp.widget, layout = wibox.layout.align.horizontal }, 4, 4), "#7197E7"),
+            arrow("#7197E7", "#A77AC4"),
+            wibox.container.background(wibox.container.margin(wibox.widget { baticon, bat.widget, layout = wibox.layout.align.horizontal }, 3, 3), "#A77AC4"),
+            arrow("#A77AC4", "#7197E7"),
+            wibox.container.background(wibox.container.margin(wibox.widget { nil, neticon, net.widget, layout = wibox.layout.align.horizontal }, 3, 3), "#7197E7"),
+            arrow("#7197E7", "#A77AC4"),
+            wibox.container.background(wibox.container.margin(clock, 4, 8), "#A77AC4"),
+            arrow("#A77AC4", "alpha"),
             --]]
             s.mylayoutbox,
         },
