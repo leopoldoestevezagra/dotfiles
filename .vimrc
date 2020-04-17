@@ -53,6 +53,7 @@ Plug 'mattn/emmet-vim'
 Plug 'posva/vim-vue'
 Plug 'pangloss/vim-javascript'
 Plug 'jiangmiao/auto-pairs'
+Plug 'Valloric/YouCompleteMe'
 
 call plug#end()
 
@@ -243,5 +244,13 @@ let g:lightline = {
       \ }
 
 
+
+let g:ycm_show_diagnostics_ui = 1
+let g:ycm_enable_diagnostic_signs = 0
+let g:ycm_enable_diagnostic_highlighting = 0
+
+set completeopt-=preview
+let g:ycm_auto_trigger = 0
+nnoremap <silent> <leader>gd :YcmCompleter GoTo<CR>
 
 
