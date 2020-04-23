@@ -500,7 +500,7 @@ globalkeys = my_table.join(
         end),
     awful.key({ modkey1, "Shift" }, "m",
         function ()
-            os.execute(string.format("amixer -q set %s 100%%", beautiful.volume.channel))
+            os.execute(string.format("amixer -q set %s 50%%", beautiful.volume.channel))
             beautiful.volume.update()
         end),
     awful.key({ modkey1, "Shift" }, "0",
@@ -803,5 +803,5 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 
 -- Autostart applications
 awful.spawn.with_shell("~/.config/awesome/autostart.sh")
-awful.spawn.with_shell("compton --config  $HOME/.config/compton/compton.conf")
+awful.spawn.with_shell("compton --vsync opengl")
 awful.spawn.with_shell("xinput set-prop 12 305 1")
