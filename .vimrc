@@ -46,7 +46,7 @@ Plug 'tpope/vim-surround'
 Plug 'gabesoft/vim-ags'
 Plug 'nelsyeung/twig.vim'
 Plug 'iamcco/markdown-preview.vim'
-Plug 'xuhdev/vim-latex-live-preview'
+Plug 'lervag/vimtex'
 Plug 'junegunn/goyo.vim'
 Plug 'ayu-theme/ayu-vim'
 Plug 'mattn/emmet-vim'
@@ -90,7 +90,7 @@ autocmd FileType html setlocal shiftwidth=2 tabstop=2
 autocmd FileType css setlocal shiftwidth=2 tabstop=2
 autocmd FileType scss setlocal shiftwidth=2 tabstop=2
 
-
+let g:vimtex_view_general_viewer = 'evince'
 "=============================================================="
 "NerdTree"
 "=============================================================="
