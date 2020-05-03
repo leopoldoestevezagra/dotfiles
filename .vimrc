@@ -89,6 +89,7 @@ autocmd FileType javascript setlocal shiftwidth=2 tabstop=2
 autocmd FileType html setlocal shiftwidth=2 tabstop=2
 autocmd FileType css setlocal shiftwidth=2 tabstop=2
 autocmd FileType scss setlocal shiftwidth=2 tabstop=2
+autocmd FileType md setlocal shiftwidth=2 tabstop=2
 
 let g:vimtex_view_general_viewer = 'evince'
 "=============================================================="
