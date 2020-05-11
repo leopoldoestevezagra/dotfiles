@@ -152,13 +152,15 @@ export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
 alias tmux="TERM=screen-256color-bce tmux"
 
 alias q='exit'
-alias cl='clear'
+alias c='clear'
 alias h='history'
 alias q='exit'
 alias lsa='ls -a'
 alias k='kill'
 alias pd='pwd'
 alias t='time'
+
+alias bta='pactl set-sink-volume bluez_sink.E8_AB_FA_28_A4_17.a2dp_sink '
 
 alias docs='cd ~/Documents'
 alias pro='cd ~/Projects'
@@ -180,7 +182,6 @@ alias gstash='git stash'
 
 alias v='vim'
 alias vf='vifm'
-alias c='code '
 alias txm='tmux new -s Main'
 alias pdfo='evince '
 alias pdft='pandoc -s -V geometry:margin=1in -o '
