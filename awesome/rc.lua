@@ -116,7 +116,7 @@ awful.util.terminal = terminal
 --awful.util.tagnames = {  " ", " ", " ", " ", " ", " ", " ", " ", " ", " "  }
 --awful.util.tagnames = { "⠐", "⠡", "⠲", "⠵", "⠻", "⠿" }
 --awful.util.tagnames = { "⌘", "♐", "⌥", "ℵ" }
-awful.util.tagnames = { " DEV ", " WEB ", " DOCS ", " MSC ", " SYS ", " 6 ", " 7 ", " 8 ", " 9  " }
+awful.util.tagnames = { " DEV ", " WEB ", " DOCS ", " MSC ", " MSC ", " SYS ", " 7 ", " 8 ", " 9  " }
 -- Use this : https://fontawesome.com/cheatsheet
 --awful.util.tagnames = { "", "", "", "", "" }
 awful.layout.suit.tile.left.mirror = true
@@ -433,6 +433,10 @@ globalkeys = my_table.join(
     -- Standard program
     awful.key({ modkey,           }, "Return", function () awful.spawn(terminal) end,
               {description = "Terminal", group = "super"}),
+
+    awful.key({ modkey,           }, "n", function () awful.spawn('nautilus') end,
+              {description = "Nautilus", group = "super"}),
+
     awful.key({ modkey,           }, "i", function () awful.spawn(browser) end,
               {description = "Chromium", group = "super"}),
     awful.key({ modkey, "Shift" }, "r", awesome.restart,
@@ -803,5 +807,5 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 
 -- Autostart applications
 awful.spawn.with_shell("~/.config/awesome/autostart.sh")
-awful.spawn.with_shell("compton --vsync opengl")
+awful.spawn.with_shell("compton -b -c --backend glx --vsync opengl-swc")
 awful.spawn.with_shell("xinput set-prop 12 305 1")
