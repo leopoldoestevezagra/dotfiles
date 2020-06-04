@@ -481,7 +481,7 @@ globalkeys = my_table.join(
         -- Brightness
     awful.key({ }, "XF86MonBrightnessUp", function () os.execute("xrandr --output eDP-1 --brightness 1") end,
               {description = "Full", group = "hotkeys"}),
-    awful.key({ }, "XF86MonBrightnessDown", function () os.execute("xrandr --output eDP-1 --brightness 0.5") end,
+    awful.key({ }, "XF86MonBrightnessDown", function () os.execute("xrandr --output eDP-1 --brightness 0.65") end,
               {description = "Half", group = "hotkeys"}),
 
     -- ALSA volume control
