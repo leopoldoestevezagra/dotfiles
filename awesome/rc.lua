@@ -102,7 +102,7 @@ local modkey1      = "Control"
 
 -- personal variables
 --change these variables if you want
-local browser           = "chromium-browser"
+local browser           = "google-chrome"
 local editor            = os.getenv("EDITOR") or "vim"
 local filemanager       = "nautilus"
 local mediaplayer       = "vlc"
@@ -805,5 +805,5 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 
 -- Autostart applications
 awful.spawn.with_shell("~/.config/awesome/autostart.sh")
-awful.spawn.with_shell("compton -b -c --backend glx --vsync opengl-swc")
+--awful.spawn.with_shell("compton -b -c --backend glx --vsync opengl-swc")
 awful.spawn.with_shell("xinput set-prop 12 305 1")
