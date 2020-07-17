@@ -44,16 +44,15 @@ Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-surround'
 Plug 'gabesoft/vim-ags'
-Plug 'nelsyeung/twig.vim'
 Plug 'iamcco/markdown-preview.vim'
 Plug 'lervag/vimtex'
 Plug 'junegunn/goyo.vim'
 Plug 'ayu-theme/ayu-vim'
 Plug 'mattn/emmet-vim'
+Plug 'jiangmiao/auto-pairs'
 Plug 'posva/vim-vue'
 Plug 'pangloss/vim-javascript'
-Plug 'jiangmiao/auto-pairs'
-Plug 'Valloric/YouCompleteMe'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 call plug#end()
 
