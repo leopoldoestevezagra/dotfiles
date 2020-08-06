@@ -215,13 +215,6 @@ set colorcolumn=80
 set background=dark
 set t_Co=256
 
-"##### Lightline #####"
-let g:lightline = {
-      \ 'component_function': {
-      \   'filename': 'LightlineFilename',
-      \ }
-      \ }
-
 " Relative path on lightline at the bottom
 function! LightlineFilename()
   let root = fnamemodify(get(b:, 'git_dir'), ':h')
