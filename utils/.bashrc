@@ -163,7 +163,7 @@ alias t='time'
 alias bta='pactl set-sink-volume bluez_sink.E8_AB_FA_28_A4_17.a2dp_sink '
 
 alias docs='cd ~/Documents'
-alias pro='cd ~/Projects'
+alias pro='cd ~/Documents/Projects'
 alias clases='cd ~/Documents/Clases'
 alias courses='cd ~/Projects/Courses'
 
