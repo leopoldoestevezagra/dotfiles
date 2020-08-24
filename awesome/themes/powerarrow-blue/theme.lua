@@ -366,5 +366,9 @@ function theme.at_screen_connect(s)
         },
     }
 end
-
+client.connect_signal("manage", function (c)
+    c.shape = function(cr,w,h)
+        gears.shape.rounded_rect(cr,w,h,5)
+    end
+end)
 return theme
