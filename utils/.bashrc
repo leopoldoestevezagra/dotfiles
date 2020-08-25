@@ -187,6 +187,7 @@ alias pdfo='evince '
 alias pdft='pandoc -s -V geometry:margin=1in -o '
 
 alias work='sh ~/scripts/tmuxWork.sh'
+alias work='sh ~/Documents/Apps/AndroidStudio/android-studio/bin/studio.sh
 
 alias vbash='vim ~/.bashrc'
 alias vvim='vim ~/.vimrc'
