@@ -1,17 +1,8 @@
 {
     "recommendations": [
         "vscodevim.vim",
-        "abusaidm.html-snippets",
-        "zignd.html-css-class-completion",
         "xabikos.javascriptsnippets",
         "pkief.material-icon-theme",
-        "equinusocio.vsc-material-theme",
-        "felixfbecker.php-intellisense",
-        "mblode.twig-language-2",
-        "formulahendry.code-runner",
-        "dline.cobaltnext",
-        "formulahendry.code-runner",
-        "ms-azuretools.vscode-docker",
-        "tomoki1207.pdf"
+        "dline.cobaltnext"
     ]
 }
