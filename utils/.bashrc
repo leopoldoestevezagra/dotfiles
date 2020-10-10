@@ -167,6 +167,8 @@ alias pdft='pandoc -s -V geometry:margin=1in -o '
 alias vbash='vim ~/.bashrc'
 alias vvim='vim ~/.vimrc'
 
+alias jbtools='cd /opt/jetbrais-toolbox'
+
 alias clwar='clear'
 alias clewr='clear'
 alias ext='exit'
