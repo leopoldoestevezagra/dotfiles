@@ -105,6 +105,18 @@ if [ -x /usr/bin/dircolors ]; then
     alias egrep='egrep --color=auto'
 fi
 
+# colored GCC warnings and errors
+#export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
+
+# some more ls aliases
+alias ll='ls -alF'
+alias la='ls -A'
+alias l='ls -CF'
+
+# Add an "alert" alias for long running commands.  Use like so:
+#   sleep 10; alert
+alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
+
 # Alias definitions.
 # You may want to put all your additions into a separate file like
 # ~/.bash_aliases, instead of adding them here directly.
@@ -136,16 +148,28 @@ parse_git_branch() {
 
 
 export PS1="\[$(tput bold)\]\[\033[38;5;46m\]\u@\h\[$(tput sgr0)\]\[$(tput sgr0)\]\[\033[38;5;15m\]:\[$(tput bold)\]\[$(tput sgr0)\]\[\033[38;5;33m\]\w\[$(tput sgr0)\]\[$(tput sgr0)\]\[\033[38;5;15m\]\$(parse_git_branch)\[\033[00m\] \\$ \[$(tput sgr0)\]"
-export FZF_DEFAULT_COMMAND='fdfind --type f --hidden --follow --exclude .git'
+export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
+alias tmux="TERM=screen-256color-bce tmux"
 
 alias q='exit'
+alias c='clear'
+alias h='history'
+alias q='exit'
+alias lsa='ls -a'
+alias k='kill'
+alias pd='pwd'
+alias t='time'
+
+alias bta='pactl set-sink-volume bluez_sink.E8_AB_FA_28_A4_17.a2dp_sink '
 
 alias docs='cd ~/Documents'
-alias projects='cd ~/Documents/Projects'
+alias pro='cd ~/Documents/Projects'
 alias clases='cd ~/Documents/Clases'
 alias courses='cd ~/Projects/Courses'
 
 alias uptodate='sudo apt update && sudo apt upgrade'
+
+alias rmd='rm -R '
 
 alias ginit='git init'
 alias gstatus='git status'
@@ -153,19 +177,19 @@ alias glogg='git log --oneline --graph'
 alias glog='git log'
 alias gadd='git add .'
 alias gcomm='git commit'
-alias gpush='git push '
+alias gpush='git push'
 alias gstash='git stash'
-alias greseth='git reset --hard'
-alias gcout='git checkout '
 
 alias v='vim'
 alias vf='vifm'
-alias txm='tmux new -s Main'
 alias pdfo='evince '
 alias pdft='pandoc -s -V geometry:margin=1in -o '
 
+alias work='sh ~/scripts/tmuxWork.sh'
+
 alias vbash='vim ~/.bashrc'
 alias vvim='vim ~/.vimrc'
+alias vtux='vim ~/.tmux.conf'
 
 alias jbtools='cd /opt/jetbrais-toolbox'
 
