@@ -7,12 +7,5 @@ go ahead and check them out if you want to .
 
 * Vscode config
 * Bash config
-* Zsh config
 * Vim config
-* Vifm config
-* i3 config
-* Autostart for new installs
-* Eclipse rapper
-* Tmux config
-* Scripts for auto-resize windows
 * Awesome window manager configuration
