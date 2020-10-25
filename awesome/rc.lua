@@ -228,6 +228,7 @@ awful.util.mymainmenu = freedesktop.menu.build({
 -- }}}
 
 
+client.connect_signal("focus", function(c) c.border_color = "#d3d3d3" end)
 
 -- {{{ Screen
 -- Re-set wallpaper when a screen's geometry changes (e.g. different resolution)
