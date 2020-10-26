@@ -156,8 +156,8 @@ let g:user_emmet_leader_key=','
 :imap jj <Esc>
 
 "File finding fzf"
-:map <F1> :GFiles <CR>
-:map <F2> :Files <CR>
+:map <F1> :Files <CR>
+:map <F2> :GFiles <CR>
 
 noremap <Leader>y "*y
 noremap <Leader>p "*p
