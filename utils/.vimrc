@@ -52,6 +52,8 @@ Plug 'mattn/emmet-vim'
 Plug 'jiangmiao/auto-pairs'
 Plug 'posva/vim-vue'
 Plug 'pangloss/vim-javascript'
+Plug 'leafgarland/typescript-vim'
+Plug 'maxmellon/vim-jsx-pretty'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 call plug#end()
@@ -89,7 +91,6 @@ autocmd FileType html setlocal shiftwidth=2 tabstop=2
 autocmd FileType css setlocal shiftwidth=2 tabstop=2
 autocmd FileType scss setlocal shiftwidth=2 tabstop=2
 autocmd FileType md setlocal shiftwidth=2 tabstop=2
-autocmd FileType py setlocal shiftwidth=4 tabstop=4
 
 let g:vimtex_view_general_viewer = 'evince'
 "=============================================================="
@@ -156,8 +157,8 @@ let g:user_emmet_leader_key=','
 :imap jj <Esc>
 
 "File finding fzf"
-:map <F1> :Files <CR>
-:map <F2> :GFiles <CR>
+:map <F1> :GFiles <CR>
+:map <F2> :Files <CR>
 
 noremap <Leader>y "*y
 noremap <Leader>p "*p
@@ -215,6 +216,13 @@ set colorcolumn=80
 
 set background=dark
 set t_Co=256
+
+"##### Lightline #####"
+let g:lightline = {
+      \ 'component_function': {
+      \   'filename': 'LightlineFilename',
+      \ }
+      \ }
 
 " Relative path on lightline at the bottom
 function! LightlineFilename()
