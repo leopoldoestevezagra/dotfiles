@@ -5,7 +5,10 @@ go ahead and check them out if you want to .
 
 ### Current
 
-* Vscode config
 * Bash config
 * Vim config
 * Awesome window manager configuration
+
+**Notes** :
+----
+* Current font in use JetBrainsMono
