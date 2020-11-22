@@ -48,12 +48,11 @@ Plug 'iamcco/markdown-preview.vim'
 Plug 'lervag/vimtex'
 Plug 'junegunn/goyo.vim'
 Plug 'ayu-theme/ayu-vim'
+Plug 'morhetz/gruvbox'
 Plug 'mattn/emmet-vim'
 Plug 'jiangmiao/auto-pairs'
 Plug 'posva/vim-vue'
 Plug 'pangloss/vim-javascript'
-Plug 'leafgarland/typescript-vim'
-Plug 'maxmellon/vim-jsx-pretty'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 call plug#end()
@@ -64,6 +63,7 @@ call plug#end()
 "=============================================================="
 
 set history=500
+let g:tex_flavor = 'latex'
 
 filetype plugin on
 filetype indent on
@@ -91,6 +91,7 @@ autocmd FileType html setlocal shiftwidth=2 tabstop=2
 autocmd FileType css setlocal shiftwidth=2 tabstop=2
 autocmd FileType scss setlocal shiftwidth=2 tabstop=2
 autocmd FileType md setlocal shiftwidth=2 tabstop=2
+autocmd FileType py setlocal shiftwidth=4 tabstop=4
 
 let g:vimtex_view_general_viewer = 'evince'
 "=============================================================="
@@ -157,8 +158,8 @@ let g:user_emmet_leader_key=','
 :imap jj <Esc>
 
 "File finding fzf"
-:map <F1> :GFiles <CR>
-:map <F2> :Files <CR>
+:map <F1> :Files <CR>
+:map <F2> :GFiles <CR>
 
 noremap <Leader>y "*y
 noremap <Leader>p "*p
@@ -195,11 +196,12 @@ nmap <S-s> <C-w>s
 
 syntax enable
 
-set background=dark
+set background=dark " 282828"
 set termguicolors
-let ayucolor="mirage"
-colorscheme ayu
-
+let g:gruvbox_contrast_dark = "medium"
+"let ayucolor="mirage"
+"colorscheme ayu
+colorscheme gruvbox
 set diffopt+=vertical
 
 set ruler
@@ -217,13 +219,6 @@ set colorcolumn=80
 set background=dark
 set t_Co=256
 
-"##### Lightline #####"
-let g:lightline = {
-      \ 'component_function': {
-      \   'filename': 'LightlineFilename',
-      \ }
-      \ }
-
 " Relative path on lightline at the bottom
 function! LightlineFilename()
   let root = fnamemodify(get(b:, 'git_dir'), ':h')
@@ -236,7 +231,7 @@ endfunction
 
 set laststatus=2
 let g:lightline = {
-      \ 'colorscheme': 'one',
+      \ 'colorscheme': 'gruvbox',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
       \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
