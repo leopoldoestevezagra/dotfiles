@@ -86,6 +86,8 @@ run_once({ "unclutter -root" }) -- entries must be comma-separated
 
 local themes = {
     "powerarrow-blue", -- 1
+    "powerarrow",      -- 2
+    "multicolor",      -- 3
 
 }
 
@@ -102,11 +104,11 @@ local modkey1      = "Control"
 
 -- personal variables
 --change these variables if you want
-local browser           = "google-chrome"
+local browser           = "chromium"
 local editor            = os.getenv("EDITOR") or "vim"
 local filemanager       = "nautilus"
 local mediaplayer       = "vlc"
-local scrlocker         = "slimlock"
+--local scrlocker         = "slimlock"
 local terminal          = "gnome-terminal"
 
 -- awesome variables
@@ -114,23 +116,23 @@ awful.util.terminal = terminal
 --awful.util.tagnames = {  " ", " ", " ", " ", " ", " ", " ", " ", " ", " "  }
 --awful.util.tagnames = { "⠐", "⠡", "⠲", "⠵", "⠻", "⠿" }
 --awful.util.tagnames = { "⌘", "♐", "⌥", "ℵ" }
-awful.util.tagnames = { " DEV ", " WEB ", " DOCS ", " MSC ", " MSC ", " SYS ", " 7 ", " 8 ", " 9  " }
+awful.util.tagnames = { " DEV ", " WEB ", " SYS ", " MSC ", " MSC ", " DOCS ", " 7 ", " 8 ", " 9  " }
 -- Use this : https://fontawesome.com/cheatsheet
 --awful.util.tagnames = { "", "", "", "", "" }
 awful.layout.suit.tile.left.mirror = true
 awful.layout.layouts = {
     awful.layout.suit.tile,
-    --awful.layout.suit.floating,
-    awful.layout.suit.tile.left,
-    awful.layout.suit.tile.bottom,
-    awful.layout.suit.tile.top,
-    --awful.layout.suit.fair,
+    awful.layout.suit.floating,
+    --awful.layout.suit.tile.left,
+    --awful.layout.suit.tile.bottom,
+    --awful.layout.suit.tile.top,
+    awful.layout.suit.fair,
     --awful.layout.suit.fair.horizontal,
-    awful.layout.suit.spiral,
-    awful.layout.suit.spiral.dwindle,
-    awful.layout.suit.max,
+    --awful.layout.suit.spiral,
+    --awful.layout.suit.spiral.dwindle,
+    --awful.layout.suit.max,
     --awful.layout.suit.max.fullscreen,
-    awful.layout.suit.magnifier,
+    --awful.layout.suit.magnifier,
     --awful.layout.suit.corner.nw,
     --awful.layout.suit.corner.ne,
     --awful.layout.suit.corner.sw,
@@ -196,6 +198,7 @@ lain.layout.cascade.tile.ncol          = 2
 
 beautiful.init(string.format(gears.filesystem.get_configuration_dir() .. "/themes/%s/theme.lua", chosen_theme))
 -- }}}
+client.connect_signal("focus", function(c) c.border_color = "#d3d3d3" end)
 
 
 
@@ -228,7 +231,6 @@ awful.util.mymainmenu = freedesktop.menu.build({
 -- }}}
 
 
-client.connect_signal("focus", function(c) c.border_color = "#d3d3d3" end)
 
 -- {{{ Screen
 -- Re-set wallpaper when a screen's geometry changes (e.g. different resolution)
@@ -442,7 +444,7 @@ globalkeys = my_table.join(
               {description = "Reload awesome", group = "awesome"}),
     awful.key({ modkey, "Shift" }, "q", awesome.quit,
               {description = "Quit awesome", group = "awesome"}),
-    awful.key({ modkey, "Shift"}, "p", function () os.execute("i3lock -i ~/Pictures/Wallpapers/anchor_drawing_vector_dark_93570_1920x1080.png & sleep 5 && xset dpms force off") end,
+    awful.key({ modkey, "Shift"}, "p", function () os.execute("i3lock -i /usr/share/backgrounds/warty-final-ubuntu.png & sleep 5 && xset dpms force off") end,
               {description = "Lock awesome", group = "awesome"}),
 
     awful.key({ altkey, "Shift"   }, "l",     function () awful.tag.incmwfact( 0.05)          end,
@@ -796,7 +798,6 @@ function border_adjust(c)
         c.border_color = beautiful.border_focus
     end
 end
-
 client.connect_signal("focus", border_adjust)
 client.connect_signal("property::maximized", border_adjust)
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
