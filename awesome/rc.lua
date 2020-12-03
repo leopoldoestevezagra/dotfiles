@@ -116,7 +116,7 @@ awful.util.terminal = terminal
 --awful.util.tagnames = {  " ", " ", " ", " ", " ", " ", " ", " ", " ", " "  }
 --awful.util.tagnames = { "⠐", "⠡", "⠲", "⠵", "⠻", "⠿" }
 --awful.util.tagnames = { "⌘", "♐", "⌥", "ℵ" }
-awful.util.tagnames = { " DEV ", " WEB ", " SYS ", " MSC ", " MSC ", " DOCS ", " 7 ", " 8 ", " 9  " }
+awful.util.tagnames = { " DEV ", " WEB ", " DOCS ", " SRV ", " MSC ", " SYS ", " 7 ", " 8 ", " 9  " }
 -- Use this : https://fontawesome.com/cheatsheet
 --awful.util.tagnames = { "", "", "", "", "" }
 awful.layout.suit.tile.left.mirror = true
@@ -221,7 +221,7 @@ awful.util.mymainmenu = freedesktop.menu.build({
     after = {
         { "Terminal", terminal },
         { "Log out", function() awesome.quit() end },
-        { "Sleep", "systemctl suspend" },
+        --{ "Sleep", "systemctl suspend" },
         { "Restart", "systemctl reboot" },
         { "Exit", "systemctl poweroff" },
         -- other triads can be put here
@@ -268,7 +268,7 @@ globalkeys = my_table.join(
     -- dmenu
     awful.key({ modkey, "Shift" }, "Return",
     function ()
-        awful.spawn(string.format("dmenu_run -i  -nb '#292d3e' -nf '#bbc5ff' -sb '#82AAFF' -sf '#292d3e' -fn 'Mononoki Nerd Font:bold:pixelsize=14'",
+        awful.spawn(string.format("dmenu_run -i  -nb '#2b2b2b' -nf '#bbc5ff' -sb '#82AAFF' -sf '#292d3e' -fn 'Mononoki Nerd Font:bold:pixelsize=14'",
         beautiful.bg_normal, beautiful.fg_normal, beautiful.bg_focus, beautiful.fg_focus))
 	end,
     {description = "show dmenu", group = "hotkeys"}),
