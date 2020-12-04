@@ -53,7 +53,9 @@ Plug 'mattn/emmet-vim'
 Plug 'jiangmiao/auto-pairs'
 Plug 'posva/vim-vue'
 "Plug 'pangloss/vim-javascript'
-Plug 'chemzqm/vim-jsx-improve'
+"Plug 'chemzqm/vim-jsx-improve'
+Plug 'maxmellon/vim-jsx-pretty'
+Plug 'yuezk/vim-js'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 call plug#end()
