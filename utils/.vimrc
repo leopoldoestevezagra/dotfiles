@@ -52,7 +52,8 @@ Plug 'morhetz/gruvbox'
 Plug 'mattn/emmet-vim'
 Plug 'jiangmiao/auto-pairs'
 Plug 'posva/vim-vue'
-Plug 'pangloss/vim-javascript'
+"Plug 'pangloss/vim-javascript'
+Plug 'chemzqm/vim-jsx-improve'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 call plug#end()
@@ -86,9 +87,9 @@ set foldmethod=indent
 set nofoldenable
 
 autocmd FileType vue setlocal shiftwidth=2 tabstop=2
-autocmd FileType javascript setlocal shiftwidth=2 tabstop=2
-autocmd FileType html setlocal shiftwidth=2 tabstop=2
 autocmd FileType css setlocal shiftwidth=2 tabstop=2
+autocmd FileType html setlocal shiftwidth=2 tabstop=2
+autocmd FileType javascript setlocal shiftwidth=2 tabstop=2
 autocmd FileType scss setlocal shiftwidth=2 tabstop=2
 autocmd FileType md setlocal shiftwidth=2 tabstop=2
 autocmd FileType py setlocal shiftwidth=4 tabstop=4
@@ -132,6 +133,7 @@ set noswapfile
 "Text,tab and indent"
 "=============================================================="
 
+filetype indent on
 set expandtab
 
 set smarttab
@@ -147,6 +149,9 @@ set si
 set nowrap
 
 let g:goyo_linenr = 1
+"let g:jsx_ext_required = 0
+
+let g:jsx_improve_javascriptreact = 0
 
 "=============================================================="
 "Remapings"
