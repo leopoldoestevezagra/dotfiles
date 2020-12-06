@@ -30,38 +30,60 @@ if empty(glob('~/.vim/autoload/plug.vim'))
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
+" Installation needs
+" silver seacher
+" fzf
+" npm
+" git
+" latex-live
 call plug#begin('~/.vim/plugged')
 
-Plug 'scrooloose/nerdtree'
-Plug 'Xuyuanp/nerdtree-git-plugin'
-Plug 'itchyny/lightline.vim'
-Plug 'scrooloose/nerdcommenter'
-Plug 'tpope/vim-abolish'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+" Engines
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } "Searching engine
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
-Plug 'tpope/vim-fugitive'
-Plug 'airblade/vim-gitgutter'
-Plug 'tpope/vim-surround'
-Plug 'gabesoft/vim-ags'
-Plug 'iamcco/markdown-preview.vim'
+Plug 'gabesoft/vim-ags' "Word searching
 Plug 'lervag/vimtex'
-Plug 'junegunn/goyo.vim'
-Plug 'ayu-theme/ayu-vim'
-Plug 'morhetz/gruvbox'
-Plug 'mattn/emmet-vim'
+
+" Tools
+Plug 'scrooloose/nerdtree'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'tpope/vim-fugitive' "Git commands & better integration
+Plug 'airblade/vim-gitgutter'
+
+" Completion & Text
+Plug 'tpope/vim-abolish' "Substitution & better searching
+Plug 'tpope/vim-surround' "Change surrounding tags etc
+Plug 'scrooloose/nerdcommenter' "Comments
 Plug 'jiangmiao/auto-pairs'
+Plug 'neoclide/coc.nvim', {'branch': 'release'} "Main completion engine
+
+" Highligh & snippets
 Plug 'posva/vim-vue'
-"Plug 'pangloss/vim-javascript'
-"Plug 'chemzqm/vim-jsx-improve'
-Plug 'maxmellon/vim-jsx-pretty'
+Plug 'nelsyeung/twig.vim'
+Plug 'SirVer/ultisnips'
+Plug 'mlaursen/vim-react-snippets'
 Plug 'yuezk/vim-js'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'maxmellon/vim-jsx-pretty'
+
+" Visualization
+Plug 'iamcco/markdown-preview.vim'
+
+"Visuals
+Plug 'itchyny/lightline.vim'
+Plug 'morhetz/gruvbox'
+
 
 call plug#end()
 
-
-"=============================================================="
+" Note : Coc installables
+" coc-emmet
+" coc-phpls
+" coc-tsserver
+" coc-snippets
+" coc-html
+"
+" =============================================================="
 "General"
 "=============================================================="
 
@@ -151,7 +173,6 @@ set si
 set nowrap
 
 let g:goyo_linenr = 1
-"let g:jsx_ext_required = 0
 
 let g:jsx_improve_javascriptreact = 0
 
@@ -251,11 +272,15 @@ let g:lightline = {
 
 
 let g:ycm_show_diagnostics_ui = 1
-let g:ycm_enable_diagnostic_signs = 0
-let g:ycm_enable_diagnostic_highlighting = 0
+let g:ycm_enable_diagnostic_signs = 1
+let g:ycm_enable_diagnostic_highlighting = 1
+
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
 set completeopt-=preview
-let g:ycm_auto_trigger = 0
+let g:ycm_auto_trigger = 1
 nnoremap <silent> <leader>gd :YcmCompleter GoTo<CR>
 
 
