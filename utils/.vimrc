@@ -224,8 +224,8 @@ nmap <S-s> <C-w>s
 
 syntax enable
 
-set background=dark " 282828"
-set termguicolors
+set background=dark
+set t_Co=256
 let g:gruvbox_contrast_dark = "medium"
 "let ayucolor="mirage"
 "colorscheme ayu
@@ -244,8 +244,6 @@ set tm=500
 set number relativenumber
 set colorcolumn=80
 
-set background=dark
-set t_Co=256
 
 " Relative path on lightline at the bottom
 function! LightlineFilename()
