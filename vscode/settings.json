@@ -1,0 +1,13 @@
+{
+    "workbench.editor.enablePreview": false,
+    "vim.insertModeKeyBindings": [
+        {
+            "before": ["j", "j"],
+            "after": ["<Esc>"]
+        }
+    ],
+    "workbench.colorTheme": "Gruvbox Dark Hard",
+    "editor.lineNumbers": "relative",
+    "workbench.startupEditor": "newUntitledFile"
+
+}
