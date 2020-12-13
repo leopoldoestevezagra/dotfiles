@@ -444,7 +444,8 @@ globalkeys = my_table.join(
               {description = "Reload awesome", group = "awesome"}),
     awful.key({ modkey, "Shift" }, "q", awesome.quit,
               {description = "Quit awesome", group = "awesome"}),
-    awful.key({ modkey, "Shift"}, "p", function () os.execute("i3lock -i /usr/share/backgrounds/warty-final-ubuntu.png & sleep 5 && xset dpms force off") end,
+    -- Note : lock command must have the provided lock script on /bin/lock
+    awful.key({ modkey, "Shift"}, "p", function () os.execute("lock & sleep 5 && xset dpms force off") end,
               {description = "Lock awesome", group = "awesome"}),
 
     awful.key({ altkey, "Shift"   }, "l",     function () awful.tag.incmwfact( 0.05)          end,
