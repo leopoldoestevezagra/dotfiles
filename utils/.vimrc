@@ -44,6 +44,7 @@ Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'gabesoft/vim-ags' "Word searching
 Plug 'lervag/vimtex'
+Plug 'dbeniamine/cheat.sh-vim'
 
 " Tools
 Plug 'scrooloose/nerdtree'
@@ -186,17 +187,11 @@ let g:user_emmet_leader_key=','
 :imap jj <Esc>
 
 "File finding fzf"
-:map <F1> :Files <CR>
-:map <F2> :GFiles <CR>
+:map <Leader>f :Files <CR>
+:map <Leader>g :GFiles <CR>
+:map <Leader>b :Buffers <CR>
+:map <Leader>db :BD <CR>
 
-noremap <Leader>y "*y
-noremap <Leader>p "*p
-noremap <Leader>Y "+y
-noremap <Leader>P "+p
-
-
-"NerdTree remapings"
-map <C-m> :NERDTreeToggle<CR>
 
 "Window resizing"
 if bufwinnr(1)
@@ -224,12 +219,16 @@ nmap <S-s> <C-w>s
 
 syntax enable
 
+
 set background=dark
+
+let g:gruvbox_invert_selection=0
+let g:gruvbox_contrast_dark="hard"
+colorscheme gruvbox
 set t_Co=256
-let g:gruvbox_contrast_dark = "medium"
+
 "let ayucolor="mirage"
 "colorscheme ayu
-colorscheme gruvbox
 set diffopt+=vertical
 
 set ruler
@@ -243,7 +242,6 @@ set tm=500
 
 set number relativenumber
 set colorcolumn=80
-
 
 " Relative path on lightline at the bottom
 function! LightlineFilename()
@@ -281,4 +279,22 @@ set completeopt-=preview
 let g:ycm_auto_trigger = 1
 nnoremap <silent> <leader>gd :YcmCompleter GoTo<CR>
 
+function! s:list_buffers()
+  redir => list
+  silent ls
+  redir END
+  return split(list, "\n")
+endfunction
+
+function! s:delete_buffers(lines)
+  execute 'bwipeout' join(map(a:lines, {_, line -> split(line)[0]}))
+endfunction
+
+command! BD call fzf#run(fzf#wrap({
+  \ 'source': s:list_buffers(),
+  \ 'sink*': { lines -> s:delete_buffers(lines) },
+  \ 'options': '--multi --reverse --bind ctrl-a:select-all+accept'
+\ }))
+
+let g:fzf_layout = { 'window': { 'width': 0.8, 'height': 0.8, 'highlight': 'Comment' } }
 
