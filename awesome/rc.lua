@@ -35,6 +35,8 @@ naughty.config.defaults['icon_size'] = 100
 local lain          = require("lain")
 local freedesktop   = require("freedesktop")
 
+require("collision")()
+
 -- Enable hotkeys help widget for VIM and other apps
 -- when client with a matching name is opened:
 local hotkeys_popup = require("awful.hotkeys_popup").widget
@@ -444,8 +446,7 @@ globalkeys = my_table.join(
               {description = "Reload awesome", group = "awesome"}),
     awful.key({ modkey, "Shift" }, "q", awesome.quit,
               {description = "Quit awesome", group = "awesome"}),
-    -- Note : lock command must have the provided lock script on /bin/lock
-    awful.key({ modkey, "Shift"}, "p", function () os.execute("lock & sleep 5 && xset dpms force off") end,
+    awful.key({ modkey, "Shift"}, "p", function () os.execute("i3lock -i /usr/share/backgrounds/warty-final-ubuntu.png & sleep 5 && xset dpms force off") end,
               {description = "Lock awesome", group = "awesome"}),
 
     awful.key({ altkey, "Shift"   }, "l",     function () awful.tag.incmwfact( 0.05)          end,
@@ -554,6 +555,8 @@ clientkeys = my_table.join(
         {description = "toggle fullscreen", group = "client"}),
     awful.key({ modkey, "Shift"   }, "c",      function (c) c:kill()                         end,
               {description = "close", group = "hotkeys"}),
+    awful.key({ modkey, "Control" }, "f",  awful.client.floating.toggle                     ,
+              {description = "toggle floating", group = "client"}),
     awful.key({ modkey, "Control" }, "Return", function (c) c:swap(awful.client.getmaster()) end,
               {description = "move to master", group = "client"}),
     awful.key({ modkey,           }, "o",      function (c) c:move_to_screen()               end,
