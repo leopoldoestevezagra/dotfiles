@@ -35,7 +35,7 @@ naughty.config.defaults['icon_size'] = 100
 local lain          = require("lain")
 local freedesktop   = require("freedesktop")
 
-require("collision")()
+--require("collision")()
 
 -- Enable hotkeys help widget for VIM and other apps
 -- when client with a matching name is opened:
@@ -106,7 +106,7 @@ local modkey1      = "Control"
 
 -- personal variables
 --change these variables if you want
-local browser           = "chromium"
+local browser           = "google-chrome"
 local editor            = os.getenv("EDITOR") or "vim"
 local filemanager       = "nautilus"
 local mediaplayer       = "vlc"
