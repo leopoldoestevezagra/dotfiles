@@ -111,7 +111,8 @@ local editor            = os.getenv("EDITOR") or "vim"
 local filemanager       = "nautilus"
 local mediaplayer       = "vlc"
 --local scrlocker         = "slimlock"
-local terminal          = "gnome-terminal"
+--local terminal          = "gnome-terminal"
+local terminal          = "alacritty"
 
 -- awesome variables
 awful.util.terminal = terminal
