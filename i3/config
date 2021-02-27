@@ -193,7 +193,7 @@ for_window [class="^.*"] border pixel 1
 gaps inner 5
 gaps outer 0
 
-client.focused  #4c7899 #285577 #ffffff #ffffff   #888888
+client.focused  #4c7899 #285577 #ffffff #f5a70a   #888888
 
 exec_always --no-startup-id ~/.config/polybar/polybar.sh &
 exec "nitrogen --restore"
