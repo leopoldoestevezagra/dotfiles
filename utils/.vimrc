@@ -150,6 +150,28 @@ set nowrap
 let g:goyo_linenr = 1
 
 "=============================================================="
+"Functions"
+"=============================================================="
+
+function! s:list_buffers()
+    redir => list
+    silent ls
+    redir END
+    return split(list, "\n")
+endfunction
+
+function! s:delete_buffers(lines)
+    execute 'bwipeout' join(map(a:lines, {_, line -> split(line)[0]}))
+endfunction
+
+command! BD call fzf#run(fzf#wrap({
+            \ 'source': s:list_buffers(),
+            \ 'sink*': { lines -> s:delete_buffers(lines) },
+            \ 'options': '--multi --reverse --bind ctrl-a:select-all+accept'
+            \ }))
+
+
+"=============================================================="
 "Remapings"
 "=============================================================="
 let mapleader=","
@@ -159,8 +181,10 @@ let g:user_emmet_leader_key=','
 :imap jj <Esc>
 
 "File finding fzf"
-:map <F1> :Files <CR>
-:map <F2> :GFiles <CR>
+:nmap <Leader>f :Files<CR>
+:nmap <Leader>g :GFiles<CR>
+:nmap <Leader>b :Buffers<CR>
+:nmap <Leader>db :BD<CR>
 
 noremap <Leader>y "*y
 noremap <Leader>p "*p
@@ -242,7 +266,6 @@ let g:lightline = {
       \   'gitbranch': 'fugitive#head'
       \ },
       \ }
-
 
 
 let g:ycm_show_diagnostics_ui = 1
