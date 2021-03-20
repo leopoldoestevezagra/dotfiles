@@ -30,35 +30,62 @@ if empty(glob('~/.vim/autoload/plug.vim'))
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
+" Installation needs
+" silver seacher
+" fzf
+" npm
+" git
+" latex-live
 call plug#begin('~/.vim/plugged')
 
-Plug 'scrooloose/nerdtree'
-Plug 'Xuyuanp/nerdtree-git-plugin'
-Plug 'itchyny/lightline.vim'
-Plug 'scrooloose/nerdcommenter'
-Plug 'tpope/vim-abolish'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+" Engines
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } "Searching engine
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
-Plug 'tpope/vim-fugitive'
-Plug 'airblade/vim-gitgutter'
-Plug 'tpope/vim-surround'
-Plug 'gabesoft/vim-ags'
-Plug 'iamcco/markdown-preview.vim'
+Plug 'gabesoft/vim-ags' "Word searching
 Plug 'lervag/vimtex'
-Plug 'junegunn/goyo.vim'
-Plug 'ayu-theme/ayu-vim'
-Plug 'morhetz/gruvbox'
-Plug 'mattn/emmet-vim'
+Plug 'dbeniamine/cheat.sh-vim'
+
+" Tools
+Plug 'scrooloose/nerdtree'
+Plug 'preservim/tagbar'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'tpope/vim-fugitive' "Git commands & better integration
+Plug 'airblade/vim-gitgutter'
+
+" Completion & Text
+Plug 'tpope/vim-abolish' "Substitution & better searching
+Plug 'tpope/vim-surround' "Change surrounding tags etc
+Plug 'scrooloose/nerdcommenter' "Comments
 Plug 'jiangmiao/auto-pairs'
+Plug 'neoclide/coc.nvim', {'branch': 'release'} "Main completion engine
+
+" Highligh & snippets
 Plug 'posva/vim-vue'
-Plug 'pangloss/vim-javascript'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'nelsyeung/twig.vim'
+Plug 'SirVer/ultisnips'
+Plug 'mlaursen/vim-react-snippets'
+Plug 'yuezk/vim-js'
+Plug 'maxmellon/vim-jsx-pretty'
+
+" Visualization
+Plug 'iamcco/markdown-preview.vim'
+
+"Visuals
+Plug 'itchyny/lightline.vim'
+Plug 'morhetz/gruvbox'
+
 
 call plug#end()
 
-
-"=============================================================="
+" Note : Coc installables
+" coc-emmet
+" coc-phpls
+" coc-tsserver
+" coc-snippets
+" coc-html
+"
+" =============================================================="
 "General"
 "=============================================================="
 
@@ -86,9 +113,9 @@ set foldmethod=indent
 set nofoldenable
 
 autocmd FileType vue setlocal shiftwidth=2 tabstop=2
-autocmd FileType javascript setlocal shiftwidth=2 tabstop=2
-autocmd FileType html setlocal shiftwidth=2 tabstop=2
 autocmd FileType css setlocal shiftwidth=2 tabstop=2
+autocmd FileType html setlocal shiftwidth=2 tabstop=2
+autocmd FileType javascript setlocal shiftwidth=2 tabstop=2
 autocmd FileType scss setlocal shiftwidth=2 tabstop=2
 autocmd FileType md setlocal shiftwidth=2 tabstop=2
 autocmd FileType py setlocal shiftwidth=4 tabstop=4
@@ -98,7 +125,6 @@ let g:vimtex_view_general_viewer = 'evince'
 "NerdTree"
 "=============================================================="
 
-let g:fzf_layout = { 'window': { 'width': 0.8, 'height': 0.8 } }
 
 "Autoload NerdTree"
 " autocmd vimenter * NERDTree
@@ -133,6 +159,7 @@ set noswapfile
 "Text,tab and indent"
 "=============================================================="
 
+filetype indent on
 set expandtab
 
 set smarttab
@@ -149,27 +176,7 @@ set nowrap
 
 let g:goyo_linenr = 1
 
-"=============================================================="
-"Functions"
-"=============================================================="
-
-function! s:list_buffers()
-    redir => list
-    silent ls
-    redir END
-    return split(list, "\n")
-endfunction
-
-function! s:delete_buffers(lines)
-    execute 'bwipeout' join(map(a:lines, {_, line -> split(line)[0]}))
-endfunction
-
-command! BD call fzf#run(fzf#wrap({
-            \ 'source': s:list_buffers(),
-            \ 'sink*': { lines -> s:delete_buffers(lines) },
-            \ 'options': '--multi --reverse --bind ctrl-a:select-all+accept'
-            \ }))
-
+let g:jsx_improve_javascriptreact = 0
 
 "=============================================================="
 "Remapings"
@@ -181,15 +188,10 @@ let g:user_emmet_leader_key=','
 :imap jj <Esc>
 
 "File finding fzf"
-:nmap <Leader>f :Files<CR>
-:nmap <Leader>g :GFiles<CR>
-:nmap <Leader>b :Buffers<CR>
-:nmap <Leader>db :BD<CR>
-
-noremap <Leader>y "*y
-noremap <Leader>p "*p
-noremap <Leader>Y "+y
-noremap <Leader>P "+p
+:map <Leader>f :Files <CR>
+:map <Leader>g :GFiles <CR>
+:map <Leader>b :Buffers <CR>
+:map <Leader>db :BD <CR>
 
 
 "NerdTree remapings"
@@ -221,17 +223,18 @@ nmap <S-s> <C-w>s
 
 syntax enable
 
-set guicursor=
 
-set background=dark " 282828"
-set termguicolors
-let g:gruvbox_contrast_dark = "hard"
+set background=dark
+
+let g:gruvbox_invert_selection=0
+let g:gruvbox_contrast_dark="hard"
 colorscheme gruvbox
-set diffopt+=vertical
-let g:gruvbox_invert_selection="0"
+set t_Co=256
 
-hi! Normal ctermbg=NONE guibg=NONE
-hi! NonText ctermbg=NONE guibg=NONE guifg=NONE ctermfg=NONE
+"let ayucolor="mirage"
+"colorscheme ayu
+set diffopt+=vertical
+
 set ruler
 
 set cursorline
@@ -243,7 +246,6 @@ set tm=500
 
 set number relativenumber
 set colorcolumn=80
-
 
 " Relative path on lightline at the bottom
 function! LightlineFilename()
@@ -268,13 +270,36 @@ let g:lightline = {
       \ }
 
 
+
 let g:ycm_show_diagnostics_ui = 1
-let g:ycm_enable_diagnostic_signs = 0
-let g:ycm_enable_diagnostic_highlighting = 0
+let g:ycm_enable_diagnostic_signs = 1
+let g:ycm_enable_diagnostic_highlighting = 1
+
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
 set completeopt-=preview
-let g:ycm_auto_trigger = 0
+let g:ycm_auto_trigger = 1
 nnoremap <silent> <leader>gd :YcmCompleter GoTo<CR>
 
-nnoremap <leader>bb :buffers<cr>:b<space>
+function! s:list_buffers()
+  redir => list
+  silent ls
+  redir END
+  return split(list, "\n")
+endfunction
+
+function! s:delete_buffers(lines)
+  execute 'bwipeout' join(map(a:lines, {_, line -> split(line)[0]}))
+endfunction
+
+command! BD call fzf#run(fzf#wrap({
+  \ 'source': s:list_buffers(),
+  \ 'sink*': { lines -> s:delete_buffers(lines) },
+  \ 'options': '--multi --reverse --bind ctrl-a:select-all+accept'
+\ }))
+
+let g:fzf_layout = { 'window': { 'width': 0.8, 'height': 0.8, 'highlight': 'Comment' } }
+hi Normal guibg=NONE ctermbg=NONE
 
