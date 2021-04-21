@@ -52,6 +52,8 @@ Plug 'preservim/tagbar'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'tpope/vim-fugitive' "Git commands & better integration
 Plug 'airblade/vim-gitgutter'
+Plug 'vifm/vifm.vim'
+Plug 'qpkorr/vim-bufkill'
 
 " Completion & Text
 Plug 'tpope/vim-abolish' "Substitution & better searching
@@ -114,7 +116,7 @@ set nofoldenable
 
 autocmd FileType vue setlocal shiftwidth=2 tabstop=2
 autocmd FileType css setlocal shiftwidth=2 tabstop=2
-autocmd FileType html setlocal shiftwidth=2 tabstop=2
+autocmd FileType html setlocal shiftwidth=4 tabstop=4
 autocmd FileType javascript setlocal shiftwidth=2 tabstop=2
 autocmd FileType scss setlocal shiftwidth=2 tabstop=2
 autocmd FileType md setlocal shiftwidth=2 tabstop=2
@@ -188,14 +190,16 @@ let g:user_emmet_leader_key=','
 :imap jj <Esc>
 
 "File finding fzf"
-:map <Leader>f :Files <CR>
-:map <Leader>g :GFiles <CR>
-:map <Leader>b :Buffers <CR>
-:map <Leader>db :BD <CR>
+:nmap <Leader>f :Files <CR>
+:nmap <Leader>g :GFiles <CR>
+:nmap <Leader>b :Buffers <CR>
+:nmap <Leader>db :BD <CR>
 
 
 "NerdTree remapings"
-map <C-m> :NERDTreeToggle<CR>
+:nmap <Leader>m :NERDTreeToggle<CR>
+:nmap <Leader>n :NERDTreeFind<CR>
+:nmap <Leader>t :TagbarToggle<CR>
 
 "Window resizing"
 if bufwinnr(1)
@@ -294,7 +298,7 @@ function! s:delete_buffers(lines)
   execute 'bwipeout' join(map(a:lines, {_, line -> split(line)[0]}))
 endfunction
 
-command! BD call fzf#run(fzf#wrap({
+command! DB call fzf#run(fzf#wrap({
   \ 'source': s:list_buffers(),
   \ 'sink*': { lines -> s:delete_buffers(lines) },
   \ 'options': '--multi --reverse --bind ctrl-a:select-all+accept'
