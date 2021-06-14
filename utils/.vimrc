@@ -1,28 +1,6 @@
-
-"                    .
-"    ##############..... ##############
-"    ##############......##############
-"      ##########..........##########
-"      ##########........##########
-"      ##########.......##########
-"      ##########.....##########..
-"      ##########....##########.....
-"    ..##########..##########.........
-"  ....##########.#########.............
-"    ..##################...JJJ...........
-"      ################.................
-"      ##############.......JJJ..JJJJJJJJJJ
-"      ############.........JJJ..JJ..JJ  JJ
-"      ##########...........JJJ..JJ..JJ  JJ
-"      ########.............JJJ..JJJ JJJ JJJ
-"      ######    .........
-"                  .....
-"                    .
-"
 "=============================================================="
 "Plugins"
 "=============================================================="
-"
 "Autoload plug"
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
@@ -30,238 +8,115 @@ if empty(glob('~/.vim/autoload/plug.vim'))
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
-" Installation needs
-" silver seacher
-" fzf
-" npm
-" git
-" latex-live
 call plug#begin('~/.vim/plugged')
 
 " Engines
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } "Searching engine
-Plug 'junegunn/fzf'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } } " Fuzzy search
 Plug 'junegunn/fzf.vim'
-Plug 'gabesoft/vim-ags' "Word searching
-Plug 'lervag/vimtex'
-Plug 'dbeniamine/cheat.sh-vim'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " Tools
-Plug 'scrooloose/nerdtree'
-Plug 'preservim/tagbar'
-Plug 'Xuyuanp/nerdtree-git-plugin'
-Plug 'tpope/vim-fugitive' "Git commands & better integration
-Plug 'airblade/vim-gitgutter'
-Plug 'vifm/vifm.vim'
-Plug 'qpkorr/vim-bufkill'
-
-" Completion & Text
-Plug 'tpope/vim-abolish' "Substitution & better searching
-Plug 'tpope/vim-surround' "Change surrounding tags etc
-Plug 'scrooloose/nerdcommenter' "Comments
+Plug 'tpope/vim-fugitive' " Git integration
+Plug 'qpkorr/vim-bufkill' " Delete buffer keeping split
+Plug 'scrooloose/nerdcommenter'
 Plug 'jiangmiao/auto-pairs'
-Plug 'neoclide/coc.nvim', {'branch': 'release'} "Main completion engine
 
-" Highligh & snippets
-Plug 'posva/vim-vue'
-Plug 'nelsyeung/twig.vim'
-Plug 'SirVer/ultisnips'
-Plug 'mlaursen/vim-react-snippets'
-Plug 'yuezk/vim-js'
-Plug 'maxmellon/vim-jsx-pretty'
-
-" Visualization
+" Note visualization tools
+Plug 'lervag/vimtex'
 Plug 'iamcco/markdown-preview.vim'
 
-"Visuals
+" Visuals
 Plug 'itchyny/lightline.vim'
 Plug 'morhetz/gruvbox'
 
 
 call plug#end()
 
-" Note : Coc installables
-" coc-emmet
-" coc-phpls
-" coc-tsserver
-" coc-snippets
-" coc-html
-"
 " =============================================================="
-"General"
+"General Configuration"
 "=============================================================="
 
-set history=500
-let g:tex_flavor = 'latex'
+set path=$PWD/** 
 
-filetype plugin on
-filetype indent on
-
-
-set autoread
-
-set path=$PWD/**
-
-set wildmode=longest,list,full
+set wildmode=full 
 
 set splitbelow splitright
-
-set magic
+set magic " regex on find
 
 set noerrorbells
-
 set encoding=utf8
-set foldmethod=indent
+
+set foldmethod=indent " folding
 set nofoldenable
 
-autocmd FileType vue setlocal shiftwidth=2 tabstop=2
-autocmd FileType css setlocal shiftwidth=2 tabstop=2
-autocmd FileType html setlocal shiftwidth=4 tabstop=4
-autocmd FileType javascript setlocal shiftwidth=2 tabstop=2
-autocmd FileType scss setlocal shiftwidth=2 tabstop=2
-autocmd FileType md setlocal shiftwidth=2 tabstop=2
-autocmd FileType py setlocal shiftwidth=4 tabstop=4
+set diffopt+=vertical 
+
+set number relativenumber
+
+set backspace=indent,eol,start
+
+" =============================================================="
+" External tools configuration "
+"=============================================================="
 
 let g:vimtex_view_general_viewer = 'evince'
-"=============================================================="
-"NerdTree"
-"=============================================================="
-
-
-"Autoload NerdTree"
-" autocmd vimenter * NERDTree
-autocmd StdinReadPre * let s:std_in=1
-" autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | exe 'cd '.argv()[0] | endif
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | exe 'cd '.argv()[0] | endif
-
-
-"Autofix on save"
-autocmd BufWritePost *.php silent! call PhpCsFixerFixFile()
-
-let NERDTreeMinimalUI = 1
-let NERDTreeDirArrows = 1
-
-autocmd BufWritePre * %s/\s\+$//e
-
-let NERDTreeShowHidden=1
-
 
 "=============================================================="
 "Files and backup"
 "=============================================================="
 
 set nobackup
-set nowb
 set noswapfile
 
 "=============================================================="
-"Text,tab and indent"
+"Text,tab,indent and syntax"
 "=============================================================="
 
-filetype indent on
-set expandtab
+filetype plugin indent on
+syntax on
 
-set smarttab
+set autoindent " Indent acording with previous line
+set expandtab " Spaces instead of tabs
+set softtabstop=4 " Tab key indents by 4 spaces.
+set shiftwidth=4 " >> indents by 4 spaces.
+set shiftround " >> indents to next multiple of 'shiftwidth'.
 
-set shiftwidth=4
-set tabstop=4
-
-set lbr
-set tw=500
-
-set ai
-set si
-set nowrap
-
-let g:goyo_linenr = 1
-
-let g:jsx_improve_javascriptreact = 0
+set linebreak " break on line break not last char that fits
+set nowrap " disables line wrap
 
 "=============================================================="
 "Remapings"
 "=============================================================="
 let mapleader=","
-let g:user_emmet_leader_key=','
 
-"Basic remapings"
-:imap jj <Esc>
-
-"File finding fzf"
-:nmap <Leader>f :Files <CR>
-:nmap <Leader>g :GFiles <CR>
-:nmap <Leader>b :Buffers <CR>
-:nmap <Leader>db :BD <CR>
-
-
-"NerdTree remapings"
-:nmap <Leader>m :NERDTreeToggle<CR>
-:nmap <Leader>n :NERDTreeFind<CR>
-:nmap <Leader>t :TagbarToggle<CR>
-
-"Window resizing"
-if bufwinnr(1)
-  map + 5<C-W>+
-  map - 5<C-W>-
-endif
-
-
-if bufwinnr(1)
-  map <F12> 5<C-W>>
-  map <F10> 5<C-W><
-endif
-
+" Movement
+imap jj <Esc>
 nmap <S-h> <C-w>h
 nmap <S-j> <C-w>j
-nmap <S-k> <C-w>k
 nmap <S-l> <C-w>l
 nmap <S-v> <C-w>v
 nmap <S-s> <C-w>s
 
+"File finding fzf"
+nmap <Leader>f :Files <CR>
+nmap <Leader>g :GFiles <CR>
+nmap <Leader>b :Buffers <CR>
+nmap <Leader>db :DB <CR>
+
 "=============================================================="
 "UI and colors"
 "=============================================================="
-
-
-syntax enable
-
-
 set background=dark
 
 let g:gruvbox_invert_selection=0
 let g:gruvbox_contrast_dark="hard"
 colorscheme gruvbox
-set t_Co=256
 
-"let ayucolor="mirage"
-"colorscheme ayu
-set diffopt+=vertical
+"=============================================================="
+" Tool configuration "
+"=============================================================="
 
-set ruler
-
-set cursorline
-hi CursorLine term=bold cterm=bold guibg=Grey40
-set hlsearch
-
-
-set tm=500
-
-set number relativenumber
-set colorcolumn=80
-
-" Relative path on lightline at the bottom
-function! LightlineFilename()
-  let root = fnamemodify(get(b:, 'git_dir'), ':h')
-  let path = expand('%:p')
-  if path[:len(root)-1] ==# root
-    return path[len(root)+1:]
-  endif
-  return expand('%')
-endfunction
-
-set laststatus=2
+"lightline
 let g:lightline = {
       \ 'colorscheme': 'gruvbox',
       \ 'active': {
@@ -273,19 +128,12 @@ let g:lightline = {
       \ },
       \ }
 
+" fzf
+let g:fzf_layout = { 'window': { 'width': 0.8, 'height': 0.8, 'highlight': 'Comment' } }
 
-
-let g:ycm_show_diagnostics_ui = 1
-let g:ycm_enable_diagnostic_signs = 1
-let g:ycm_enable_diagnostic_highlighting = 1
-
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
-
-set completeopt-=preview
-let g:ycm_auto_trigger = 1
-nnoremap <silent> <leader>gd :YcmCompleter GoTo<CR>
+"=============================================================="
+" custom functions "
+"=============================================================="
 
 function! s:list_buffers()
   redir => list
@@ -304,6 +152,4 @@ command! DB call fzf#run(fzf#wrap({
   \ 'options': '--multi --reverse --bind ctrl-a:select-all+accept'
 \ }))
 
-let g:fzf_layout = { 'window': { 'width': 0.8, 'height': 0.8, 'highlight': 'Comment' } }
-hi Normal guibg=NONE ctermbg=NONE
 
