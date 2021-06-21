@@ -19,7 +19,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'tpope/vim-fugitive' " Git integration
 Plug 'qpkorr/vim-bufkill' " Delete buffer keeping split
 Plug 'scrooloose/nerdcommenter'
-Plug 'jiangmiao/auto-pairs'
+Plug 'preservim/nerdtree'
 
 " Note visualization tools
 Plug 'lervag/vimtex'
@@ -103,11 +103,18 @@ nmap <Leader>g :GFiles <CR>
 nmap <Leader>b :Buffers <CR>
 nmap <Leader>db :DB <CR>
 
+nnoremap <space> <NOP>
+nnoremap <c-space> <NOP>
+
+nmap <silent> gd <Plug>(coc-definition)
+nnoremap <silent><expr> <c-space> coc#refresh()
+inoremap <silent><expr> <c-space> coc#refresh()
 "=============================================================="
 "UI and colors"
 "=============================================================="
 set background=dark
 
+let g:gruvbox_guisp_fallback = 'bg'
 let g:gruvbox_invert_selection=0
 let g:gruvbox_contrast_dark="hard"
 colorscheme gruvbox
@@ -151,5 +158,4 @@ command! DB call fzf#run(fzf#wrap({
   \ 'sink*': { lines -> s:delete_buffers(lines) },
   \ 'options': '--multi --reverse --bind ctrl-a:select-all+accept'
 \ }))
-
 
