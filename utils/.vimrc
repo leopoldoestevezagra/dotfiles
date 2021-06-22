@@ -103,6 +103,11 @@ nmap <Leader>g :GFiles <CR>
 nmap <Leader>b :Buffers <CR>
 nmap <Leader>db :DB <CR>
 
+" Nerdtree
+nmap <Leader>m :NERDTreeToggle <CR>
+nmap <Leader>n :NERDTreeFind <CR>
+
+" Coc related 
 nnoremap <space> <NOP>
 nnoremap <c-space> <NOP>
 
