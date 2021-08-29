@@ -5,7 +5,11 @@ window:
 
   decorations: none
 
+custom_cursor_colors: false
 colors:
+  cursor:
+    text: '0x000000'
+    cursor: '0xffffff'
   # Default colors
   primary:
     # hard contrast: background = '#1d2021'
