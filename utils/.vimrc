@@ -55,6 +55,9 @@ set number relativenumber
 
 set backspace=indent,eol,start
 
+set guicursor=n-v-c:block-Cursor
+set guicursor=i:ver100
+
 " =============================================================="
 " External tools configuration "
 "=============================================================="
