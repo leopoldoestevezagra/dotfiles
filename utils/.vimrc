@@ -28,7 +28,11 @@ Plug 'iamcco/markdown-preview.vim'
 " Visuals
 Plug 'itchyny/lightline.vim'
 Plug 'morhetz/gruvbox'
+Plug 'leafgarland/typescript-vim'
+Plug 'peitalin/vim-jsx-typescript'
 
+"HL
+Plug 'nelsyeung/twig.vim'
 
 call plug#end()
 
@@ -37,6 +41,7 @@ call plug#end()
 "=============================================================="
 
 set path=$PWD/** 
+set autoread
 
 set wildmode=full 
 
@@ -57,6 +62,8 @@ set backspace=indent,eol,start
 
 set guicursor=n-v-c:block-Cursor
 set guicursor=i:ver100
+
+set hidden
 
 " =============================================================="
 " External tools configuration "
@@ -97,8 +104,20 @@ imap jj <Esc>
 nmap <S-h> <C-w>h
 nmap <S-j> <C-w>j
 nmap <S-l> <C-w>l
-nmap <S-v> <C-w>v
-nmap <S-s> <C-w>s
+nmap <S-k> <C-w>k
+nmap ss :split<Return><C-w>w
+nmap sv :vsplit<Return><C-w>w
+
+nmap te :tabedit <Return>
+nmap <S-Tab> :tabprev<Return>
+nmap <Tab> :tabnext<Return>
+
+nnoremap n nzzzv
+nnoremap N Nzzzv
+
+vnoremap J :m '>+1<CR>gv=gv
+vnoremap K :m '<-2<CR>gv=gv
+
 
 "File finding fzf"
 nmap <Leader>f :Files <CR>
@@ -110,6 +129,9 @@ nmap <Leader>db :DB <CR>
 nmap <Leader>m :NERDTreeToggle <CR>
 nmap <Leader>n :NERDTreeFind <CR>
 
+" Tagbar
+nmap <Leader>t :TagbarToggle <CR>
+
 " Coc related 
 nnoremap <space> <NOP>
 nnoremap <c-space> <NOP>
@@ -117,15 +139,24 @@ nnoremap <c-space> <NOP>
 nmap <silent> gd <Plug>(coc-definition)
 nnoremap <silent><expr> <c-space> coc#refresh()
 inoremap <silent><expr> <c-space> coc#refresh()
+
+vnoremap // y/\V<C-R>=escape(@",'/\')<CR><CR>
 "=============================================================="
 "UI and colors"
 "=============================================================="
+let NERDTreeMinimalUI=1
+let g:NERDTreeWinPos = "right"
+
 set background=dark
 
 let g:gruvbox_guisp_fallback = 'bg'
 let g:gruvbox_invert_selection=0
 let g:gruvbox_contrast_dark="hard"
 colorscheme gruvbox
+
+highlight Normal ctermbg=none
+highlight NonText ctermbg=none
+
 
 "=============================================================="
 " Tool configuration "
@@ -167,3 +198,5 @@ command! DB call fzf#run(fzf#wrap({
   \ 'options': '--multi --reverse --bind ctrl-a:select-all+accept'
 \ }))
 
+autocmd VimEnter * command! -bang -nargs=? GFiles call fzf#vim#gitfiles(<q-args>, {'options': '--no-preview'}, <bang>0)
+autocmd VimEnter * command! -bang -nargs=? Files call fzf#vim#files(<q-args>, {'options': '--no-preview'}, <bang>0)
