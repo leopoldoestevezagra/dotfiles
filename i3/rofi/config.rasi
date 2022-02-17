@@ -1,7 +1,0 @@
-configuration {
- show-icons: true;
- modi: "drun";
- theme: "gruvbox-dark-hard";
- font: "hack 12";
- fake-transparency: true;
- }
