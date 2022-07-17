@@ -19,24 +19,26 @@ vnoremap K :m '<-2<CR>gv=gv
 
 "File finding fzf"
 nmap <Leader>f :Files <CR>
-nmap <Leader>g :GFiles <CR>
+nmap <Leader>s :GFiles <CR>
 nmap <Leader>b :Buffers <CR>
 nmap <Leader>db :DB <CR>
 
 " Defx
-nmap <Leader>m :Defx <CR>
-nmap <Leader>n :Defx `expand('%:p:h')` -search=`expand('%:p')`<CR>
+nmap <Leader>r :Defx `expand('%:p:h')` -search=`expand('%:p')` -show-ignored-files<CR>
+nmap <Leader>t :tabnew % \| :Defx `expand('%:p:h')` -search=`expand('%:p')` -show-ignored-files<CR>
 
-nmap <Leader>t :tabnew \| :Defx <CR>
-nmap <Leader>r :tabnew % \| :Defx `expand('%:p:h')` -search=`expand('%:p')`<CR>
+nmap <Leader>m :tabnew \| :Defx -show-ignored-files<CR>
+nmap <Leader>n :Defx -show-ignored-files<CR>
 
 " Coc related 
 nnoremap <space> <NOP>
 nnoremap <c-space> <NOP>
 
 nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gr <Plug>(coc-references)
 
-
+nmap <Leader>gn <Plug>(coc-rename)
+nnoremap <silent> ge :CocList diagnostics <CR> 
 
 " Define mappings
 "cnoreabbrev sf Defx -listed -new

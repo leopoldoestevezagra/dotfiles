@@ -36,5 +36,3 @@ Plug 'peitalin/vim-jsx-typescript'
 Plug 'nelsyeung/twig.vim'
 
 call plug#end()
-
-

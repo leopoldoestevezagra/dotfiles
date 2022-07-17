@@ -12,6 +12,8 @@ colorscheme gruvbox
 highlight Normal ctermbg=none
 highlight NonText ctermbg=none
 
+let g:AutoPairsCenterLine=0
+
 "lightline
 let g:lightline = {
       \ 'colorscheme': 'gruvbox',
