@@ -24,11 +24,15 @@ packer.startup(function(use)
         'nvim-treesitter/nvim-treesitter',
         run = ':TSUpdate'
     }
+    use 'williamboman/mason.nvim'
+    use 'williamboman/mason-lspconfig.nvim'
     use 'windwp/nvim-autopairs'
     use 'windwp/nvim-ts-autotag'
 
     use 'nvim-lua/plenary.nvim'
     use 'nvim-telescope/telescope.nvim'
     use 'nvim-telescope/telescope-file-browser.nvim'
+    use 'lewis6991/gitsigns.nvim'
+    use 'tpope/vim-fugitive'
 
 end)

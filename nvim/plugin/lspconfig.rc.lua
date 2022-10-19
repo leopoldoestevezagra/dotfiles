@@ -1,8 +1,6 @@
 local status, nvim_lsp = pcall(require, 'lspconfig')
 if (not status) then return end
 
-local protocol = require('vim.lsp.protocol')
-
 local on_attach = function(client, bufnr)
     if client.server_capabilities.documentFormattingProvider then
         vim.api.nvim_command [[augroup Format ]]
@@ -12,14 +10,20 @@ local on_attach = function(client, bufnr)
     end
 end
 
+local capabilities = require('cmp_nvim_lsp').default_capabilities(
+    vim.lsp.protocol.make_client_capabilities()
+)
+
 nvim_lsp.tsserver.setup {
     on_attach = on_attach,
-    filetypes = { "typescript", "typescriptreact", "typescript.tsx" },
+    capabilities = capabilities,
+    filetypes = { "typescript", "typescriptreact", "typescript.tsx", "javascript" },
     cmd = { "typescript-language-server", "--stdio" }
 }
 
 nvim_lsp.sumneko_lua.setup {
     on_attach = on_attach,
+    capabilities = capabilities,
     settings = {
         Lua = {
             diagnostics = {
@@ -31,4 +35,19 @@ nvim_lsp.sumneko_lua.setup {
             }
         }
     }
+}
+
+nvim_lsp.html.setup {
+    on_attach = on_attach,
+    capabilities = capabilities
+}
+
+nvim_lsp.emmet_ls.setup {
+    on_attach = on_attach,
+    capabilities = capabilities
+}
+
+nvim_lsp.cssls.setup {
+    on_attach = on_attach,
+    capabilities = capabilities
 }
