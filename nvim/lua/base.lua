@@ -6,6 +6,9 @@ local opt = vim.opt
 opt.relativenumber = true
 opt.number = true
 
+-- indicators
+opt.colorcolumn = "90"
+
 -- tab / indentation
 opt.tabstop = 4
 opt.shiftwidth = 4
@@ -18,7 +21,6 @@ opt.smarttab = true
 opt.wrap = false
 
 -- search settings
-opt.ignorecase = true 
 opt.smartcase = true
 opt.hlsearch = true
 
@@ -32,11 +34,14 @@ vim.opt.scrolloff = 5 -- minimal number of lines above and below cursor
 vim.opt.backup = false
 vim.opt.backupskip = { '/tmp/*', '/private/tmp/*' }
 
+-- swap
+vim.opt.swapfile = false
+
 -- file search config
 vim.opt.path:append { '**' } -- Finding files - Search down into subfolders
 vim.opt.wildignore:append { '*/node_modules/*' }
 
--- backspace 
+-- backspace
 opt.backspace = "indent,eol,start"
 
 -- window split
@@ -44,9 +49,9 @@ opt.splitright = true
 opt.splitbelow = true
 
 -- Turn off paste mode when leaving insert
-vim.api.nvim_create_autocmd('InsertLeave', {
-  pattern = '*',
-  command = "set nopaste"
+vim.api.nvim_create_autocmd({'InsertLeave'}, {
+    pattern = {'*'},
+    command = "set nopaste"
 })
 
 -- Add asterisks in block comments
