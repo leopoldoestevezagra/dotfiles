@@ -50,7 +50,8 @@ vim.keymap.set('n', '<leader>fs', function ()
     require "telescope".extensions.file_browser.file_browser({
         path = '%:p:h',
         hide_parent_dir = true,
-        previewer = false
+        previewer = false,
+        grouped = true,
     })
 end, {})
 
