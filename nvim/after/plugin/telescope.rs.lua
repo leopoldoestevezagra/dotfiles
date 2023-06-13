@@ -42,14 +42,7 @@ vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
 vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
 vim.keymap.set('n', '<leader>dg', builtin.diagnostics, {})
 vim.keymap.set('n', '<leader>mr', builtin.marks, {})
-vim.keymap.set('n', '<leader>fi', builtin.lsp_implementations, {})
-vim.keymap.set('n', '<leader>fu', builtin.lsp_definitions, {})
 vim.keymap.set('n', '<leader>ts', builtin.treesitter, {})
-
-vim.keymap.set('n', '<leader>dd', vim.diagnostic.open_float, {})
-vim.keymap.set('n', '<leader>dn', vim.diagnostic.goto_prev, {})
-vim.keymap.set('n', '<leader>dN', vim.diagnostic.goto_next, {})
-
 
 require('telescope').load_extension 'file_browser'
 
@@ -60,3 +53,4 @@ vim.keymap.set('n', '<leader>fs', function ()
         previewer = false
     })
 end, {})
+
