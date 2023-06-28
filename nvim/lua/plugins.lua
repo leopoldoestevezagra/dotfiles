@@ -47,4 +47,6 @@ return require('packer').startup(function(use)
     use 'github/copilot.vim'
     use 'numToStr/Comment.nvim'
     use 'tpope/vim-fugitive'
+    use 'jose-elias-alvarez/null-ls.nvim'
+    use 'MunifTanjim/prettier.nvim'
 end)
