@@ -49,4 +49,5 @@ return require('packer').startup(function(use)
     use 'tpope/vim-fugitive'
     use 'jose-elias-alvarez/null-ls.nvim'
     use 'MunifTanjim/prettier.nvim'
+    use 'nanozuki/tabby.nvim'
 end)
