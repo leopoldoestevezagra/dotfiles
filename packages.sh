@@ -134,21 +134,83 @@ install_ohmyzsh() {
 install_general_utils() {
     info "Installing general utilities"
 
+    # ---------------------------------------------------------------
+    # APT packages
+    # ---------------------------------------------------------------
+
     packages=""
 
     has_command git || packages="$packages git"
     has_command neofetch || packages="$packages neofetch"
     has_command wget || packages="$packages wget"
     has_command curl || packages="$packages curl"
+    has_command unzip || packages="$packages unzip"
+    has_command fc-cache || packages="$packages fontconfig"
 
-    if [ -z "$packages" ]; then
-        skip
-        return
+    if [ -n "$packages" ]; then
+        sudo apt update
+        sudo apt install -y $packages
+    else
+        printf '    apt packages already installed.\n'
     fi
 
-    sudo apt update
-    sudo apt install -y $packages
+    # ---------------------------------------------------------------
+    # JetBrainsMono Nerd Font
+    # ---------------------------------------------------------------
+
+    if [ -d "$HOME/.local/share/fonts/JetBrainsMono" ]; then
+        printf '    JetBrainsMono Nerd Font already installed.\n'
+    else
+        printf '    installing JetBrainsMono Nerd Font...\n'
+
+        tmp_dir=$(mktemp -d)
+        trap 'rm -rf "$tmp_dir"' EXIT
+
+        curl -fL -o "$tmp_dir/JetBrainsMono.zip" \
+            "https://github.com/ryanoasis/nerd-fonts/releases/download/v3.5.1/JetBrainsMono.zip"
+
+        mkdir -p "$HOME/.local/share/fonts/JetBrainsMono"
+        unzip -q "$tmp_dir/JetBrainsMono.zip" \
+            -d "$HOME/.local/share/fonts/JetBrainsMono"
+
+        fc-cache -fv >/dev/null
+
+        trap - EXIT
+        rm -rf "$tmp_dir"
+    fi
+
+    # ---------------------------------------------------------------
+    # Tree-sitter CLI
+    # ---------------------------------------------------------------
+
+    if has_command tree-sitter; then
+        printf '    tree-sitter already installed.\n'
+    else
+        printf '    installing Tree-sitter CLI...\n'
+
+        tmp_dir=$(mktemp -d)
+        trap 'rm -rf "$tmp_dir"' EXIT
+
+        curl -fL -o "$tmp_dir/tree-sitter.zip" \
+            "https://github.com/tree-sitter/tree-sitter/releases/download/v0.27.0/tree-sitter-cli-linux-arm64.zip"
+
+        mkdir -p "$HOME/.local/bin"
+
+        unzip -q "$tmp_dir/tree-sitter.zip" \
+            -d "$tmp_dir/tree-sitter"
+
+        chmod +x "$tmp_dir/tree-sitter/tree-sitter"
+
+        mv "$tmp_dir/tree-sitter/tree-sitter" \
+            "$HOME/.local/bin/tree-sitter"
+
+        trap - EXIT
+        rm -rf "$tmp_dir"
+
+        printf '    installed tree-sitter to ~/.local/bin/tree-sitter\n'
+    fi
 }
+
 
 # -------------------------------------------------------------------
 # Menu
