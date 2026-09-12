@@ -192,7 +192,7 @@ install_general_utils() {
         trap 'rm -rf "$tmp_dir"' EXIT
 
         curl -fL -o "$tmp_dir/tree-sitter.zip" \
-            "https://github.com/tree-sitter/tree-sitter/releases/download/v0.27.0/tree-sitter-cli-linux-arm64.zip"
+            "https://github.com/tree-sitter/tree-sitter/releases/download/v0.27.0/tree-sitter-linux-x86.gz"
 
         mkdir -p "$HOME/.local/bin"
 
