@@ -4,6 +4,7 @@ set -eu
 
 NVM_VERSION="v0.40.7"
 RIPGREP_VERSION="15.2.0"
+LAZYGIT_VERSION="0.65.1"
 
 # -------------------------------------------------------------------
 # Helpers
@@ -208,6 +209,37 @@ install_general_utils() {
         rm -rf "$tmp_dir"
 
         printf '    installed tree-sitter to ~/.local/bin/tree-sitter\n'
+    fi
+
+    # ---------------------------------------------------------------
+    # Lazygit
+    # ---------------------------------------------------------------
+
+    if has_command lazygit; then
+        printf '    lazygit already installed.\n'
+    else
+        printf '    installing Lazygit CLI...\n'
+
+        tmp_dir=$(mktemp -d)
+        trap 'rm -rf "$tmp_dir"' EXIT
+
+        curl -fL -o "$tmp_dir/lazygit.tar.gz" \
+            "https://github.com/jesseduffield/lazygit/releases/download/v${LAZYGIT_VERSION}/lazygit_${LAZYGIT_VERSION}_linux_x86_64.tar.gz"
+
+        mkdir -p "$HOME/.local/bin"
+
+        tar -xzf "$tmp_dir/lazygit.tar.gz" \
+            -C "$tmp_dir"
+
+        chmod +x "$tmp_dir/lazygit"
+
+        mv "$tmp_dir/lazygit" \
+            "$HOME/.local/bin/lazygit"
+
+        trap - EXIT
+        rm -rf "$tmp_dir"
+
+        printf '    installed lazygit to ~/.local/bin/lazygit\n'
     fi
 }
 
